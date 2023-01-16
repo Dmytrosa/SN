@@ -1,0 +1,37 @@
+
+
+
+.App-w{
+display: grid;
+
+  grid-template-areas: 
+  "H H"
+  "S P";
+
+grid-template-rows: 60px 1fr;
+grid-template-columns: 2fr 10fr;
+grid-gap: 10px;
+
+}
+
+
+.bar{
+  grid-area: S;
+ ;
+}
+
+.head{
+  grid-area: H;
+}
+
+.main{
+  grid-area: P;
+}
+
+
+
+
+
+
+
+

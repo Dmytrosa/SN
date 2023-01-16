@@ -1,0 +1,44 @@
+.Bars{
+    display: grid;
+
+grid-template-columns: 150px 150px 150px 150px 150px 150px;
+grid-template-rows: 150px;
+grid-gap: 8px;
+text-align: center;
+text-decoration: none;
+color: rgb(53, 66, 7);
+margin: auto; 
+border-radius: 25% 10%;
+background-color: rgb(140, 205, 205);
+border-radius: 1%;
+}
+.active{color:rgb(199, 57, 35);
+    text-decoration: none;
+    border-radius: 30%;
+}
+
+.center {
+    padding: 60px 0;
+    text-align: center;
+  }
+
+.Denis{
+grid-area: D;
+background-color: rgb(140, 205, 205);
+border-radius: 1%
+}
+.Alina{
+    grid-area: A;
+background-color: rgb(195, 115, 195);
+border-radius: 1%
+}
+.Sashko{
+    grid-area: S;
+background-color: rgb(142, 224, 140);
+border-radius: 1%
+}
+.Natalia{
+    grid-area: N;
+background-color: rgb(201, 163, 114);
+border-radius: 1%
+}
