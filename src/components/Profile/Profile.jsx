@@ -9,6 +9,7 @@ const Profile = (postsinfo) => {
     let title = postaddingtitle.current.value;
     let text = postaddingtext.current.value;
     postsinfo.postadding(title, text);
+  
   };
 
   let ChangeNewPostTitle = () => {
@@ -35,7 +36,7 @@ console.log(titletext);
         <form>
           <p>
             Заголовок:{" "}
-            <input type="text" ref={postaddingtitle} name="title"  ></input>
+            <input type="text" ref={postaddingtitle} value={postsinfo.newposttitletext} onChange={ChangeNewPostTitle} name="title"  ></input>
           </p>
           <p>
             {" "}
