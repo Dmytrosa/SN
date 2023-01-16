@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// PostAdding('22000','2313')
+import {PostAdding} from "./redux/state";
+//PostAdding('22000','2313')
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 export let RenderTree =(Data, PostAdding, RewriteNewPostTitle )=>{
 root.render(
+  
   <React.StrictMode>
+    
     <App 
     chatsinfo={Data.chatsinfo} 
     postsinfo={Data.postsinfo} 
@@ -16,6 +20,7 @@ root.render(
     postadding= {PostAdding}
     rewritenewposttitle={RewriteNewPostTitle}
      />
+     
   </React.StrictMode>
 );}
 

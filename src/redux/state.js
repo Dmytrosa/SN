@@ -13,8 +13,9 @@ let data = {
   ],
   postsinfo: [
     { id: 0, text: "раша параша", title: "Новини", date: "15:10:2022" },
+
   ],
-  newposttitletext: '123'
+  newposttitletext: 'vsfjvsk'
 };
 
 export let PostAdding = (postaddingtext, postaddingtitle) => {
@@ -25,12 +26,12 @@ export let PostAdding = (postaddingtext, postaddingtitle) => {
     date: "15:10:2022"
   };
   data.postsinfo.push(postadd);
-RenderTree(data);
+  RenderTree(data, PostAdding, RewriteNewPostTitle);
 };
 
 export let RewriteNewPostTitle = (postaddingtitle) => {
   data.newposttitletext = postaddingtitle;
-RenderTree(data);
+  RenderTree(data, PostAdding, RewriteNewPostTitle);
 };
 
 export default data;

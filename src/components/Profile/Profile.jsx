@@ -8,14 +8,13 @@ const Profile = (postsinfo) => {
   let AddPost = () => {
     let title = postaddingtitle.current.value;
     let text = postaddingtext.current.value;
-    postsinfo.postadding(title, text);
+    postsinfo.postadding(text, title);
   
   };
 
   let ChangeNewPostTitle = () => {
 let titletext = postaddingtitle.current.value;
 postsinfo.rewritenewposttitle(titletext);
-console.log(titletext);
   }
   return (
 
@@ -29,14 +28,14 @@ console.log(titletext);
       <div className={q.info}>
         <h2>Я рижа мавпа</h2>
         <h4>
-          Status:<text> Я рижа мавпа</text>
+          Status:  <text> Я рижа мавпа</text>
         </h4>
         <div className={q.WordPosts}>POSTS</div>
 
-        <form>
+        <div>
           <p>
             Заголовок:{" "}
-            <input type="text" ref={postaddingtitle} value={postsinfo.newposttitletext} onChange={ChangeNewPostTitle} name="title"  ></input>
+            <input type="text" ref={postaddingtitle} value= {postsinfo.newposttitletext} onChange={ChangeNewPostTitle} name="title"  ></input>
           </p>
           <p>
             {" "}
@@ -46,7 +45,7 @@ console.log(titletext);
           <p>
             <input type="submit" onClick={AddPost} value="створити"></input>
           </p>{" "}
-        </form>
+        </div>
       </div>
       <div>
         <Posts postsinfo={postsinfo} />
