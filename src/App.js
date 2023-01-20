@@ -23,8 +23,10 @@ const App = (props) => {
               element={<Profile 
                 postsinfo={props.postsinfo} 
                 newposttitletext={props.newposttitletext} 
+                newposttexttext={props.newposttexttext} 
                 postadding= {props.postadding}
-                rewritenewposttitle={props.rewritenewposttitle}/>}
+                rewritenewposttitle={props.rewritenewposttitle}
+                rewritenewposttext={props.rewritenewposttext}/>}
             />
             <Route path="/NewBoys" element={<NewBoys />} />
             <Route path="/Settings" element={<Settings />} />

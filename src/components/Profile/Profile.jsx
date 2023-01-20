@@ -9,13 +9,20 @@ const Profile = (postsinfo) => {
     let title = postaddingtitle.current.value;
     let text = postaddingtext.current.value;
     postsinfo.postadding(text, title);
-  
+    postsinfo.rewritenewposttitle('');
+    postsinfo.rewritenewposttext('');
   };
 
   let ChangeNewPostTitle = () => {
 let titletext = postaddingtitle.current.value;
 postsinfo.rewritenewposttitle(titletext);
+}
+
+let ChangeNewPostText = () => {
+  let texttext = postaddingtext.current.value;
+  postsinfo.rewritenewposttext(texttext);
   }
+
   return (
 
     <div className="main">
@@ -40,7 +47,7 @@ postsinfo.rewritenewposttitle(titletext);
           <p>
             {" "}
             Текст посту:{" "}
-            <input type="text" ref={postaddingtext} name="text" ></input>
+            <input type="text" ref={postaddingtext} value= {postsinfo.newposttexttext} onChange={ChangeNewPostText} name="text" ></input>
           </p>{" "}
           <p>
             <input type="submit" onClick={AddPost} value="створити"></input>
