@@ -1,6 +1,9 @@
 import React from "react";
 import q from "./Profile.module.css";
 import Posts from "./Posts/Posts";
+import {PostAddingActionCreating, 
+  RewriteNewPostTitleActionCreating,
+   RewriteNewPostTextActionCreating} from "../../redux/state"
 const Profile = (postsinfo) => {
   let postaddingtitle = React.createRef();
   let postaddingtext = React.createRef();
@@ -8,19 +11,19 @@ const Profile = (postsinfo) => {
   let AddPost = () => {
     let title = postaddingtitle.current.value;
     let text = postaddingtext.current.value;
-    postsinfo.postadding(text, title);
-    postsinfo.rewritenewposttitle('');
-    postsinfo.rewritenewposttext('');
+    postsinfo.dispatch(PostAddingActionCreating(text, title));
+    postsinfo.dispatch( RewriteNewPostTitleActionCreating('') );
+    postsinfo.dispatch(RewriteNewPostTextActionCreating(''));
   };
 
   let ChangeNewPostTitle = () => {
-let titletext = postaddingtitle.current.value;
-postsinfo.rewritenewposttitle(titletext);
-}
+    let titletext = postaddingtitle.current.value;
+    postsinfo.dispatch( RewriteNewPostTitleActionCreating(titletext) )  ;
+  }
 
-let ChangeNewPostText = () => {
-  let texttext = postaddingtext.current.value;
-  postsinfo.rewritenewposttext(texttext);
+  let ChangeNewPostText = () => {
+    let texttext = postaddingtext.current.value;
+    postsinfo.dispatch(RewriteNewPostTextActionCreating(texttext) );
   }
 
   return (
@@ -35,19 +38,19 @@ let ChangeNewPostText = () => {
       <div className={q.info}>
         <h2>Я рижа мавпа</h2>
         <h4>
-          Status:  <text> Я рижа мавпа</text>
+          Status:  <span> Я рижа мавпа</span>
         </h4>
         <div className={q.WordPosts}>POSTS</div>
 
         <div>
           <p>
             Заголовок:{" "}
-            <input type="text" ref={postaddingtitle} value= {postsinfo.newposttitletext} onChange={ChangeNewPostTitle} name="title"  ></input>
+            <input type="text" ref={postaddingtitle} value={postsinfo.newposttitletext} onChange={ChangeNewPostTitle} name="title"  ></input>
           </p>
           <p>
             {" "}
             Текст посту:{" "}
-            <input type="text" ref={postaddingtext} value= {postsinfo.newposttexttext} onChange={ChangeNewPostText} name="text" ></input>
+            <input type="text" ref={postaddingtext} value={postsinfo.newposttexttext} onChange={ChangeNewPostText} name="text" ></input>
           </p>{" "}
           <p>
             <input type="submit" onClick={AddPost} value="створити"></input>

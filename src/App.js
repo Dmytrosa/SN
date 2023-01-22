@@ -16,20 +16,22 @@ const App = (props) => {
           <Routes>
             <Route
               path="/Chats"
-              element={<Chats chatsinfo={props.chatsinfo} />}
+              element={<Chats
+                dispatch={props.dispatch} />}
             />
             <Route
               path="/Profile"
-              element={<Profile 
-                postsinfo={props.postsinfo} 
-                newposttitletext={props.newposttitletext} 
-                newposttexttext={props.newposttexttext} 
-                postadding= {props.postadding}
-                rewritenewposttitle={props.rewritenewposttitle}
-                rewritenewposttext={props.rewritenewposttext}/>}
+              element={<Profile
+                dispatch={props.dispatch} />}
             />
-            <Route path="/NewBoys" element={<NewBoys />} />
-            <Route path="/Settings" element={<Settings />} />
+            <Route
+              path="/NewBoys"
+               element={<NewBoys />}
+                />
+            <Route
+             path="/Settings"
+              element={<Settings />}
+               />
           </Routes>
         </div>
         <SideBar />
