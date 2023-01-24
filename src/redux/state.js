@@ -20,13 +20,18 @@ let store = {
       { id: 0, text: "раша параша", title: "Новини", date: "15:10:2022" },
 
     ],
+    
     newposttitletext: '',
     newposttexttext: ''
   },
+
+
+ RenderTree() { },
+
   subscribe(observer) {
     this.RenderTree = observer;
   },
-  _RenderTree() { },
+ 
 
 
 
@@ -40,37 +45,42 @@ if (action.type === POSTADDING )
     date: "15:10:2022"
   };
   this._data.postsinfo.push(postadd);
-  this.RenderTree(this._data, this.PostAdding, this.RewriteNewPostTitle);
+  this.RenderTree(this._data);
 }
-else if(action.type=== REWRITENEWPOSTTITLE){
-  
+else if(action.type === REWRITENEWPOSTTITLE){
+//debugger;
   this._data.newposttitletext = action.postaddingtitle;
-  this.RenderTree(this._data, this.PostAdding, this.RewriteNewPostTitle, this.RewriteNewPostText);
+  console.log(this._data.newposttitletext);
+  this.RenderTree(this._data);
 
 }
 else if (action.type === REWRITENEWPOSTTEXT){
 
   this._data.newposttexttext = action.postaddingtext;
-  this.RenderTree(this._data, this.PostAdding, this.RewriteNewPostTitle, this.RewriteNewPostText);
+  this.RenderTree(this._data);
 
 }
-else if (action.type=== GETDATA){
+else if (action.type === GETDATA){
   return this._data;
 }
   },
 };
 
+
+
 export const PostAddingActionCreating =
  (text, title) => ({ type: POSTADDING, postaddingtext: text, postaddingtitle: title });
 
 export const RewriteNewPostTitleActionCreating =
- (postaddingtitle) => ({type: REWRITENEWPOSTTITLE, postaddingtitle: postaddingtitle});
+
+ (postaddingtitle) => ({ type: REWRITENEWPOSTTITLE, postaddingtitle: postaddingtitle});
 
 export const  RewriteNewPostTextActionCreating =
-(postaddingtext) => ({type: REWRITENEWPOSTTEXT, postaddingtext: postaddingtext});
+(postaddingtext) => ({ type: REWRITENEWPOSTTEXT, postaddingtext: postaddingtext});
 
 export const GetDataActionCreating =
  () => ({ type: GETDATA});
+
 
 window.data = store._data;
 export default store

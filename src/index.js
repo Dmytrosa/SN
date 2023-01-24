@@ -18,4 +18,5 @@ let RenderTree = () => {
 }
 
 RenderTree(Store.dispatch);
-Store.subscribe(RenderTree);reportWebVitals();
+Store.subscribe(RenderTree);
+reportWebVitals();

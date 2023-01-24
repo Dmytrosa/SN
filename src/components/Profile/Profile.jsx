@@ -12,7 +12,7 @@ const Profile = (postsinfo) => {
     let title = postaddingtitle.current.value;
     let text = postaddingtext.current.value;
     postsinfo.dispatch(PostAddingActionCreating(text, title));
-    postsinfo.dispatch( RewriteNewPostTitleActionCreating('') );
+    postsinfo.dispatch(RewriteNewPostTitleActionCreating('') );
     postsinfo.dispatch(RewriteNewPostTextActionCreating(''));
   };
 
