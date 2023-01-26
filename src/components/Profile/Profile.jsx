@@ -12,8 +12,13 @@ const Profile = (postsinfo) => {
     let title = postaddingtitle.current.value;
     let text = postaddingtext.current.value;
     postsinfo.dispatch(PostAddingActionCreating(text, title));
-    postsinfo.dispatch(RewriteNewPostTitleActionCreating('') );
-    postsinfo.dispatch(RewriteNewPostTextActionCreating(''));
+    //NW
+   // postsinfo.dispatch(RewriteNewPostTextActionCreating(''));
+   // postsinfo.dispatch(RewriteNewPostTitleActionCreating('') );
+    
+    //DURNYA
+    postaddingtitle.current.value="";
+    postaddingtext.current.value="";
   };
 
   let ChangeNewPostTitle = () => {
@@ -45,7 +50,7 @@ const Profile = (postsinfo) => {
         <div>
           <p>
             Заголовок:{" "}
-            <input type="text" ref={postaddingtitle} value={postsinfo.newposttitletext} onChange={ChangeNewPostTitle} name="title"  ></input>
+            <input type="text" ref={postaddingtitle} value={postsinfo.newposttexttext} onChange={ChangeNewPostTitle} name="title"  ></input>
           </p>
           <p>
             {" "}
@@ -57,9 +62,10 @@ const Profile = (postsinfo) => {
           </p>{" "}
         </div>
       </div>
-      <div>
-        <Posts postsinfo={postsinfo} />
+       <div>
+         <Posts postsinfo={postsinfo} /> 
       </div>
+     
     </div>
   );
 };

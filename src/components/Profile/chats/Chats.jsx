@@ -4,7 +4,7 @@ import Dialog from "./Dialogs/Dialog";
 import {GetDataActionCreating} from "../../../redux/state"
 const Chats =(chatsinfo) =>{
     let chatrender =
-     chatsinfo.dispatch(GetDataActionCreating()).chatsinfo.map(dialog =>{return(<Dialog name = {dialog.name} id= {dialog.id} />)});
+     chatsinfo.dispatch(GetDataActionCreating()).chatspage.chatsinfo.map(dialog =>{return(<Dialog name = {dialog.name} id= {dialog.id} />)});
     return(
 <div className='main'>
    <div className={q.Bars}>

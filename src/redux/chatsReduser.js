@@ -1,4 +1,7 @@
+
+
 const chatsReducer =(state, action)=>{
     
-    return state;
+    return state.chatspage;
 }
+export default chatsReducer;
