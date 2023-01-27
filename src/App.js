@@ -8,6 +8,7 @@ import Settings from "./components/Profile/Settings/Settings";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = (props) => {
+ 
   return (
     <BrowserRouter>
       <div className="App-w">
@@ -16,12 +17,16 @@ const App = (props) => {
           <Routes>
             <Route
               path="/Chats"
-              element={<Chats
-                dispatch={props.dispatch} />}
+              element ={
+              <Chats
+               store ={props.store}
+               
+                 />}
             />
             <Route
               path="/Profile"
               element={<Profile
+              profilepage ={props.state.profilepage}
                 dispatch={props.dispatch} />}
             />
             <Route

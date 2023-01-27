@@ -43,45 +43,47 @@ let store = {
   dispatch(action){
 
   // debugger;
-  // this._data.profelipage = ProfileReducer (this._data.profelipage, action)
-  // this.RenderTree(this._data.profelipage);
-  // this._data.chatspage = ChatsReducer (this._data.chatspage, action)
-  // this.RenderTree(this._data.chatspage);
-  //  if (action.type === GETDATA){
-  //   return this._data;
-  // }
-  // this.RenderTree(this._data);
+  this._data = ProfileReducer (this._data, action)
+  this.RenderTree(this._data);
+  debugger;
+  this._data.chatspage = ChatsReducer (this._data.chatspage, action)
+  this.RenderTree(this._data);
+   if (action.type === GETDATA){
+    return this._data;
+  }
+  this.RenderTree(this._data);
   
 
-    if (action.type === POSTADDING )
-    {
-      let postadd = {
-        id: 1,
-        text: action.postaddingtext,
-        title: action.postaddingtitle,
-        date: "15:10:2022"
-      };
-      this._data.profelipage.postsinfo.push(postadd);
-      this.RenderTree(this._data);
-    }
+  //   if (action.type === POSTADDING )
+  //   {
+  //     let postadd = {
+  //       id: 1,
+  //       text: action.postaddingtext,
+  //       title: action.postaddingtitle,
+  //       date: "15:10:2022"
+  //     };
+  //     this._data.profelipage.postsinfo.push(postadd);
+  //     this.RenderTree(this._data);
+  //   }
     
-    else if(action.type === REWRITENEWPOSTTITLE){
-    //debugger;
-      this._data.profelipage.newposttitletext = action.postaddingtitle;
-     // console.log(this._data.newposttitletext);
-     this.RenderTree(this._data);
+  //   else if(action.type === REWRITENEWPOSTTITLE){
+
+  //   // debugger;
+  //     this._data.profelipage.newposttitletext = action.postaddingtitle;
+  //    // console.log(this._data.newposttitletext);
+  //    this.RenderTree(this._data);
     
-    }
-    else if (action.type === REWRITENEWPOSTTEXT){
+  //   }
+  //   else if (action.type === REWRITENEWPOSTTEXT){
     
-      this._data.profelipage.newposttexttext = action.postaddingtext;
-      this.RenderTree(this._data);
-    }
-    else if (action.type === GETDATA){
-     return this._data;
+  //     this._data.profelipage.newposttexttext = action.postaddingtext;
+  //     this.RenderTree(this._data);
+  //   }
+  //   else if (action.type === GETDATA){
+  //    return this._data;
    
-    this.RenderTree(this._data);
-    }
+  //  // this.RenderTree(this._data);
+  //   }
 
 
   },
@@ -89,18 +91,18 @@ let store = {
 
 
 
-export const PostAddingActionCreating =
- (text, title) => ({ type: POSTADDING, postaddingtext: text, postaddingtitle: title });
+// export const PostAddingActionCreating =
+//  (text, title) => ({ type: POSTADDING, postaddingtext: text, postaddingtitle: title });
 
-export const RewriteNewPostTitleActionCreating =
+// export const RewriteNewPostTitleActionCreating =
 
- (postaddingtitle) => ({ type: REWRITENEWPOSTTITLE, postaddingtitle: postaddingtitle});
+//  (postaddingtitle) => ({ type: REWRITENEWPOSTTITLE, postaddingtitle: postaddingtitle});
 
-export const  RewriteNewPostTextActionCreating =
-(postaddingtext) => ({ type: REWRITENEWPOSTTEXT, postaddingtext: postaddingtext});
+// export const  RewriteNewPostTextActionCreating =
+// (postaddingtext) => ({ type: REWRITENEWPOSTTEXT, postaddingtext: postaddingtext});
 
-export const GetDataActionCreating =
- () => ({ type: GETDATA});
+// export const GetDataActionCreating =
+//  () => ({ type: GETDATA});
 
 
 window.data = store._data;

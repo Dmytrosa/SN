@@ -1,5 +1,5 @@
 import './index.css';
-import Store from "./redux/state";
+import store from "./redux/redux-store";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -7,16 +7,23 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let RenderTree = () => {
+let RenderTree = (state) => {
+  
   root.render(
     <React.StrictMode>
       <App
-        dispatch={Store.dispatch.bind(Store)}
+      state ={state}
+        dispatch={store.dispatch.bind(store)}
+        store = {store}
       />
     </React.StrictMode>
   );
 }
 
-RenderTree(Store.dispatch);
-Store.subscribe(RenderTree);
+RenderTree(store.getState());
+
+store.subscribe(()=>{
+  let state = store.getState();
+  RenderTree(state);
+});
 reportWebVitals();

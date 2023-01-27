@@ -3,7 +3,7 @@ import q from "./Profile.module.css";
 import Posts from "./Posts/Posts";
 import {PostAddingActionCreating, 
   RewriteNewPostTitleActionCreating,
-   RewriteNewPostTextActionCreating} from "../../redux/state"
+   RewriteNewPostTextActionCreating} from "../../redux/profileReducer"
 const Profile = (postsinfo) => {
   let postaddingtitle = React.createRef();
   let postaddingtext = React.createRef();
