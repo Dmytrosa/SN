@@ -1,12 +1,11 @@
 import React from "react";
 import q from'./Chats.module.css';
 import Dialog from "./Dialogs/Dialog";
-import {GetDataActionCreating} from "../../../redux/chatsReduser"
 const Chats =(props) =>{
-    let state = props.store.getState(). chatspage;
-    debugger
+    //debugger
+  
     let chatrender =
-    state.chatsinfo.map(dialog =>{return(<Dialog name = {dialog.name} id= {dialog.id} />)});
+    props.chatspage.chatsinfo.map(dialog =>{return(<Dialog name = {dialog.name} id= {dialog.id} />)});
     return(
 <div className='main'>
    <div className={q.Bars}>

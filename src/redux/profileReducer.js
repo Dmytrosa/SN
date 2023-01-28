@@ -22,6 +22,7 @@ const profileReducer =(state=initialState, action)=>{
       title: action.postaddingtitle,
       date: "15:10:2022"
     };
+    debugger
    state.postsinfo.push(postadd);
    return state;
   }

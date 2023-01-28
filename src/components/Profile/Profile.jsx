@@ -4,31 +4,35 @@ import Posts from "./Posts/Posts";
 import {PostAddingActionCreating, 
   RewriteNewPostTitleActionCreating,
    RewriteNewPostTextActionCreating} from "../../redux/profileReducer"
-const Profile = (postsinfo) => {
+const Profile = (props) => {
+let state = props.store.getState().profilepage;
+ // debugger
   let postaddingtitle = React.createRef();
   let postaddingtext = React.createRef();
 
   let AddPost = () => {
+    
     let title = postaddingtitle.current.value;
     let text = postaddingtext.current.value;
-    postsinfo.dispatch(PostAddingActionCreating(text, title));
+
+    props.store.dispatch(PostAddingActionCreating(text, title));
     //NW
-   // postsinfo.dispatch(RewriteNewPostTextActionCreating(''));
-   // postsinfo.dispatch(RewriteNewPostTitleActionCreating('') );
+   props.store.dispatch(RewriteNewPostTextActionCreating(''));
+   // props.dispatch(RewriteNewPostTitleActionCreating('') );
     
     //DURNYA
-    postaddingtitle.current.value="";
-    postaddingtext.current.value="";
+   // postaddingtitle.current.value="";
+    //postaddingtext.current.value="";
   };
 
   let ChangeNewPostTitle = () => {
     let titletext = postaddingtitle.current.value;
-    postsinfo.dispatch( RewriteNewPostTitleActionCreating(titletext) )  ;
+    props.dispatch( RewriteNewPostTitleActionCreating(titletext) )  ;
   }
 
   let ChangeNewPostText = () => {
     let texttext = postaddingtext.current.value;
-    postsinfo.dispatch(RewriteNewPostTextActionCreating(texttext) );
+    props.dispatch(RewriteNewPostTextActionCreating(texttext) );
   }
 
   return (
@@ -50,12 +54,12 @@ const Profile = (postsinfo) => {
         <div>
           <p>
             Заголовок:{" "}
-            <input type="text" ref={postaddingtitle} value={postsinfo.newposttexttext} onChange={ChangeNewPostTitle} name="title"  ></input>
+            <input type="text" ref={postaddingtitle} value={props.newposttexttext} onChange={ChangeNewPostTitle} name="title"  ></input>
           </p>
           <p>
             {" "}
             Текст посту:{" "}
-            <input type="text" ref={postaddingtext} value={postsinfo.newposttexttext} onChange={ChangeNewPostText} name="text" ></input>
+            <input type="text" ref={postaddingtext} value={props.newposttexttext} onChange={ChangeNewPostText} name="text" ></input>
           </p>{" "}
           <p>
             <input type="submit" onClick={AddPost} value="створити"></input>
@@ -63,7 +67,7 @@ const Profile = (postsinfo) => {
         </div>
       </div>
        <div>
-         <Posts postsinfo={postsinfo} /> 
+         <Posts props={props} /> 
       </div>
      
     </div>
