@@ -7,7 +7,6 @@ chatsinfo: [
 { id: 3, name: "Denis" },
 ],};
 const chatsReducer =(state= initialState, action)=>{
-  
     return state;
 }
 

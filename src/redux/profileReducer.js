@@ -1,6 +1,6 @@
 const POSTADDING  =()=>'POST-ADDING';
 const REWRITENEWPOSTTITLE = () =>'REWRITE-NEW-POST-TITLE';
-const REWRITENEWPOSTTEXT = () =>'REWRITE-NEW-POST-TEXT';
+const REWRITENEWPOSTTEXT = () => 'REWRITE-NEW-POST-TEXT';
 const GETDATA =() => 'GET-DATA';
 
 
@@ -13,7 +13,10 @@ newposttexttext: ''};
 
 
 const profileReducer =(state=initialState, action)=>{
-  switch (action) {
+  debugger
+
+
+  switch (action.type) {
   case POSTADDING:
   {
     debugger
