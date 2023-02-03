@@ -36,7 +36,7 @@ const SideBar = () => {
             to="/Settings"
             className={(navData) => (navData.isActive ? q.active : q.sign)}
           >
-            <div className={q.center}>Gym Settings</div>
+            <div className={q.center}>Settings</div>
           </NavLink>
         </div>
       </div>

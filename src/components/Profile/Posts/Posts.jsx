@@ -4,8 +4,9 @@ import Post from "./Post/Post";
 import {GetDataActionCreating} from "../../../redux/profileReducer";
 
 const PostArea = (props) => {
+  
   //debugger
-  let postsrender = props.props.profilepage.postsinfo.map(p => {
+  let postsrender = props.state.postsinfo.map(p => {
     return <Post id={p.id} text={p.text} title={p.title} date={p.date} />;
   });
   return (

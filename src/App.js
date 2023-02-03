@@ -25,8 +25,10 @@ const App = (props) => {
             <Route
               path="/Profile"
               element={<Profile
-                profilepage={props.state.profilepage}
-                store= {props.store}/>}
+               // profilepage={props.state.profilepage}
+                store= {props.store}
+                 // dispatch= {props.dispatch}
+                />}
             />
             <Route
               path="/NewBoys"

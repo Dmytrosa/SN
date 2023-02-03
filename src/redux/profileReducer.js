@@ -16,14 +16,15 @@ const profileReducer =(state=initialState, action)=>{
   switch (action) {
   case POSTADDING:
   {
+    debugger
     let postadd = {
       id: 1,
-      text: action.postaddingtext,
-      title: action.postaddingtitle,
+      text: initialState.newposttexttext,
+      title: initialState.newposttitletext,
       date: "15:10:2022"
     };
-    debugger
    state.postsinfo.push(postadd);
+   debugger;
    return state;
   }
   case REWRITENEWPOSTTITLE:
@@ -33,6 +34,7 @@ const profileReducer =(state=initialState, action)=>{
   }
   case  REWRITENEWPOSTTEXT:
     {
+      debugger;
       state.newposttexttext = action.postaddingtext;
       return state;
   }
@@ -42,10 +44,9 @@ const profileReducer =(state=initialState, action)=>{
 }
 
 export const PostAddingActionCreating =
- (text, title) => ({ type: POSTADDING, postaddingtext: text, postaddingtitle: title });
+ () => ({ type: POSTADDING});
 
 export const RewriteNewPostTitleActionCreating =
-
  (postaddingtitle) => ({ type: REWRITENEWPOSTTITLE, postaddingtitle: postaddingtitle});
 
 export const  RewriteNewPostTextActionCreating =
