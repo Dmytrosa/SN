@@ -1,8 +1,8 @@
 import "./App.css";
 import Head from "./components/Head/Head";
 import SideBar from "./components/SideBar/SideBar";
-import Chats from "./components/Profile/chats/Chats";
-import Profile from "./components/Profile/Profile";
+import ChatsContainer from "./components/Profile/chats/ChatsContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 import NewBoys from "./components/Profile/NewBoys/NewBoys";
 import Settings from "./components/Profile/Settings/Settings";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -18,16 +18,14 @@ const App = (props) => {
             <Route
               path="/Chats"
               element={
-                <Chats
-                  chatspage={props.state.chatspage}
+                <ChatsContainer
+                store = {props.store}
                 />}
             />
             <Route
               path="/Profile"
-              element={<Profile
-               // profilepage={props.state.profilepage}
+              element={<ProfileContainer
                 store= {props.store}
-                 // dispatch= {props.dispatch}
                 />}
             />
             <Route

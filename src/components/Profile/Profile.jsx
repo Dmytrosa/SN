@@ -1,50 +1,23 @@
 import React from "react";
 import q from "./Profile.module.css";
 import Posts from "./Posts/Posts";
-import {
-  PostAddingActionCreating,
-  RewriteNewPostTitleActionCreating,
-  RewriteNewPostTextActionCreating
-} from "../../redux/profileReducer"
+
+
 const Profile = (props) => {
-  let state = props.store.getState().profilepage;   
-
-  let newTitleBody = state.newposttitletext;
-  let newTextBody = state.newposttexttext;
-
-  let postaddingtitle = React.createRef();
-  let postaddingtext = React.createRef();
 
   let AddPost = () => {
-
-   // let title = postaddingtitle.current.value;
-   // let text = postaddingtext.current.value;
-    //debugger
-    props.store.dispatch(PostAddingActionCreating());
-    //NW
-   // props.dispatch(RewriteNewPostTextActionCreating(''));
-   // props.dispatch(RewriteNewPostTitleActionCreating('') );
-
-    //DURNYA
-    // postaddingtitle.current.value="";
-    // postaddingtext.current.value="";
+   props.AddPost();
   };
 
   let ChangeNewPostTitle = (e) => {
-    //debugger;
-    //let titletext = postaddingtitle.current.value;
-    let titletext = e.target.value;
-    props.store.dispatch(RewriteNewPostTitleActionCreating(titletext));
+   props.ChangeNewPostTitle(e);
   }
 
-  let ChangeNewPostText = () => {
-    let texttext = postaddingtext.current.value;
-    //debugger;
-    props.store.dispatch(RewriteNewPostTextActionCreating(texttext));
+  let ChangeNewPostText = (e) => {
+   props.ChangeNewPostText(e);
   }
 
   return (
-
     <div className="main">
       <div>
         <img
@@ -63,32 +36,29 @@ const Profile = (props) => {
         <div className={q.WordPosts}>POSTS</div>
         <div>
           <p>
-          <div>
-            
-          Заголовок:{" "}
-              <textarea 
-              value ={newTitleBody}
-              onChange ={ChangeNewPostTitle}
-              placeholder = 'Введіть заголовок'></textarea>
-            {/* <input type="text" ref={postaddingtitle} value={props.newposttexttext} onChange={ChangeNewPostTitle} name="title"  ></input>
-          */}
+            <div>
 
+              Заголовок:{" "}
+              <textarea
+                value={props.newTitleBody}
+                onChange={ChangeNewPostTitle}
+                placeholder='Введіть заголовок'></textarea>
             </div> </p>
           <p>
             {" "}
-
-
             Текст посту:{" "}
-            <input type="text" ref={postaddingtext} value={newTextBody} onChange={ChangeNewPostText} name="text" ></input>
+            <textarea
+                value={props.newTextBody}
+                onChange={ChangeNewPostText}
+                placeholder='Введіть текст поста'></textarea>
           </p>{" "}
           <p>
-
             <input type="submit" onClick={AddPost} value="створити"></input>
           </p>{" "}
         </div>
       </div>
       <div>
-        <Posts props={props} state= {state} />
+        <Posts props={props} state={props.state} />
       </div>
 
     </div>

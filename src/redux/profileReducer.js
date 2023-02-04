@@ -13,13 +13,11 @@ newposttexttext: ''};
 
 
 const profileReducer =(state=initialState, action)=>{
-  debugger
-
+  
 
   switch (action.type) {
   case POSTADDING:
-  {
-    debugger
+  { 
     let postadd = {
       id: 1,
       text: initialState.newposttexttext,
@@ -27,7 +25,7 @@ const profileReducer =(state=initialState, action)=>{
       date: "15:10:2022"
     };
    state.postsinfo.push(postadd);
-   debugger;
+  
    return state;
   }
   case REWRITENEWPOSTTITLE:
@@ -37,7 +35,6 @@ const profileReducer =(state=initialState, action)=>{
   }
   case  REWRITENEWPOSTTEXT:
     {
-      debugger;
       state.newposttexttext = action.postaddingtext;
       return state;
   }
