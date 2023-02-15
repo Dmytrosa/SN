@@ -24,7 +24,7 @@ const SideBar = () => {
         </div>
         <div className={q.NewB}>
           <NavLink
-            to="/NewBoys"
+            to="/Users"
             className={(navData) => (navData.isActive ? q.active : q.sign)}
           >
             <div className={q.center}>New Boys</div>

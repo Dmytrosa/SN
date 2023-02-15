@@ -1,36 +1,32 @@
 import "./App.css";
 import Head from "./components/Head/Head";
 import SideBar from "./components/SideBar/SideBar";
+import Settings from "./components/Profile/Settings/Settings";
+
 import ChatsContainer from "./components/Profile/chats/ChatsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-import NewBoys from "./components/Profile/NewBoys/NewBoys";
-import Settings from "./components/Profile/Settings/Settings";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UsersContainer from "./components/Profile/Users/UsersContainer"
 
-const App = (props) => {
+import { Route, Routes } from "react-router-dom";
+
+const App = () => {
 
   return (
-    <BrowserRouter>
       <div className="App-w">
         <Head />
         <div className="App-w-content">
           <Routes>
             <Route
               path="/Chats"
-              element={
-                <ChatsContainer
-                store = {props.store}
-                />}
+              element={<ChatsContainer/>}
             />
             <Route
               path="/Profile"
-              element={<ProfileContainer
-                store= {props.store}
-                />}
+              element={<ProfileContainer/>}
             />
             <Route
-              path="/NewBoys"
-              element={<NewBoys />}
+              path="/Users"
+              element={<UsersContainer/>}
             />
             <Route
               path="/Settings"
@@ -40,7 +36,7 @@ const App = (props) => {
         </div>
         <SideBar />
       </div>
-    </BrowserRouter>
+     
   );
 };
 

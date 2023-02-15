@@ -3,39 +3,66 @@ import {
   PostAddingActionCreating,
   RewriteNewPostTitleActionCreating,
   RewriteNewPostTextActionCreating
-} from "../../redux/profileReducer"
-const ProfileContainer = (props) => {
+} from "../../redux/profileReducer";
+import {connect} from "react-redux";
+
+
+// const ProfileContainer = (props) => {
   
-  let state = props.store.getState().profilepage;   
+//   let state = props.store.getState().profilepage;   
 
-  let newTitleBody = state.newposttitletext;
-  let newTextBody = state.newposttexttext;
+//   let AddPost = () => {
+//     props.store.dispatch(PostAddingActionCreating());
+//     props.store.dispatch(RewriteNewPostTextActionCreating(''));
+//     props.store.dispatch(RewriteNewPostTitleActionCreating('') );
+//   };
 
+//   let ChangeNewPostTitle = (e) => {
+//     let titletext = e.target.value;
+//     props.store.dispatch(RewriteNewPostTitleActionCreating(titletext));
+//   }
 
-  let AddPost = () => {
-    props.store.dispatch(PostAddingActionCreating());
-    props.store.dispatch(RewriteNewPostTextActionCreating(''));
-    props.store.dispatch(RewriteNewPostTitleActionCreating('') );
-  };
+//   let ChangeNewPostText = (e) => {
+//     let texttext = e.target.value;
+//     props.store.dispatch(RewriteNewPostTextActionCreating(texttext));
+//   }
+//   return (
+// <Profile 
+// AddPost = {AddPost} 
+// ChangeNewPostTitle={ChangeNewPostTitle} 
+// ChangeNewPostText ={ChangeNewPostText} 
+// state = {state}
+// newTitleBody ={state.newposttitletext}
+// newTextBody ={state.newposttexttext}
+// />
+//   );
+// };
 
-  let ChangeNewPostTitle = (e) => {
+let mapStateToProps = (state) =>{
+
+return{
+  newTitleBody : state.profilepage.newposttitletext,
+  newTextBody : state.profilepage.newposttexttext,
+  state: state,
+}
+}
+
+let mapDispatchToProps = (dispatch) =>{
+return{
+  AddPost : () =>{
+    dispatch(PostAddingActionCreating());
+  },
+  ChangeNewPostTitle: (e) =>{
     let titletext = e.target.value;
-    props.store.dispatch(RewriteNewPostTitleActionCreating(titletext));
+    dispatch(RewriteNewPostTitleActionCreating(titletext));
+  },
+  ChangeNewPostText :(e)=>{
+    let texttext = e.target.value;
+    dispatch(RewriteNewPostTextActionCreating(texttext));
   }
 
-  let ChangeNewPostText = (e) => {
-    let texttext = e.target.value;
-    props.store.dispatch(RewriteNewPostTextActionCreating(texttext));
-  }
-  return (
-<Profile 
-AddPost = {AddPost} 
-ChangeNewPostTitle={ChangeNewPostTitle} 
-ChangeNewPostText ={ChangeNewPostText} 
-state = {state}
-newTitleBody ={newTitleBody}
-newTextBody ={newTextBody}
-/>
-  );
-};
+}
+}
+
+const ProfileContainer = connect (mapStateToProps,mapDispatchToProps)(Profile);
 export default ProfileContainer;

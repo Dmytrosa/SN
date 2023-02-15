@@ -3,6 +3,7 @@ import q from "./../Chats.module.css";
 import { NavLink } from "react-router-dom";
 
 const Dialog = (props) => {
+  debugger
   return (
     <div>
       <NavLink

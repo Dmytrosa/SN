@@ -2,19 +2,18 @@ import React from "react";
 import q from "./Profile.module.css";
 import Posts from "./Posts/Posts";
 
-
 const Profile = (props) => {
-
+//  debugger
   let AddPost = () => {
-   props.AddPost();
+    props.AddPost();
   };
 
   let ChangeNewPostTitle = (e) => {
-   props.ChangeNewPostTitle(e);
+    props.ChangeNewPostTitle(e);
   }
 
   let ChangeNewPostText = (e) => {
-   props.ChangeNewPostText(e);
+    props.ChangeNewPostText(e);
   }
 
   return (
@@ -26,10 +25,8 @@ const Profile = (props) => {
         />
       </div>
       <div className={q.info}>
-        <h2>Я рижа мавпа</h2>
-
+        <h2>Я рижа mавпа</h2>
         <div>   image  </div>
-
         <h4>
           Status:  <span> Я рижа мавпа</span>
         </h4>
@@ -48,9 +45,9 @@ const Profile = (props) => {
             {" "}
             Текст посту:{" "}
             <textarea
-                value={props.newTextBody}
-                onChange={ChangeNewPostText}
-                placeholder='Введіть текст поста'></textarea>
+              value={props.newTextBody}
+              onChange={ChangeNewPostText}
+              placeholder='Введіть текст поста'></textarea>
           </p>{" "}
           <p>
             <input type="submit" onClick={AddPost} value="створити"></input>
@@ -58,9 +55,8 @@ const Profile = (props) => {
         </div>
       </div>
       <div>
-        <Posts props={props} state={props.state} />
+        <Posts state={props.state} />
       </div>
-
     </div>
   );
 };
