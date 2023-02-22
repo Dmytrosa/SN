@@ -4,6 +4,8 @@ const SETUSERS =() =>"SET_USERS"
 const SETCURRENTPAGE =() =>"SET_CURRENT_PAGE"
 const SETTOTALUSERSCOUNT =() =>"SET_TOTAL_USERS_COUNT"
 const TOGLEISFETCHING =() =>"TOGLE_IS_FETCHING"
+const TOGLEISFETCHINGFOLLOWING =()=>"TOGLE_IS_FETCHING_FOLLOWING"
+const CLEANISFETCHINGFOLLOWING =()=>"CLEAN_IS_FETCHING_FOLLOWING"
 
 let initialState = {
     usersinfo: [],
@@ -11,6 +13,9 @@ let initialState = {
     totalUsersCount: 20,
     currentPage:1,
     isFetching : false,
+    isFetchingFollowing:
+    //  false
+     [],
 };
 
 
@@ -19,23 +24,22 @@ const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SUB:
              {
-               // debugger
+               debugger
             return {
               ...state,
-              
               usersinfo: state.usersinfo.map(u =>{if (u.id ===action.userId)
-                {return {...u, sub: true}}
+                {return {...u, followed: true}}
                 return u;
               })
             }
         }
         case UNSUB:
              {
-               debugger
+              //  debugger
             return {
               ...state,
               usersinfo: state.usersinfo.map(u =>{if (u.id ===action.userId)
-                {return {...u, sub: false}}
+                {return {...u, followed: false}}
                 return u;
               })
             }
@@ -56,6 +60,19 @@ const usersReducer = (state = initialState, action) => {
         case TOGLEISFETCHING:
           {
             return {...state, isFetching: action.set }
+          }
+          case TOGLEISFETCHINGFOLLOWING:
+          {
+            return {...state, 
+              isFetchingFollowing: action.set
+               ? [...state.isFetchingFollowing, action.userId]
+               : state.isFetchingFollowing.filter(id => id != action.userid)
+
+             }
+          }
+          case CLEANISFETCHINGFOLLOWING:
+          {
+            return {...state, isFetchingFollowing: [] }
           }
         default:
             return state;
@@ -81,5 +98,11 @@ export const SetTotalUsersCount =
 
 export const TogleIsFetching  =
   (set) => ({type: TOGLEISFETCHING, set});
+  
+export const TogleIsFetchingFollowing  =
+  (set, userId) => ({type: TOGLEISFETCHINGFOLLOWING, set, userId});
+
+export const CleanTogleIsFetchingFollowing  =
+  () => ({type: CLEANISFETCHINGFOLLOWING});
 
 export default usersReducer;

@@ -4,3 +4,9 @@
     color: rgb(28, 131, 131);
 
 }
+.loginBlock{
+    float:right;
+}
+.loginBlock a{
+color: rgb(211, 54, 94);
+}

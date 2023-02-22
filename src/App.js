@@ -1,11 +1,11 @@
 import "./App.css";
-import Head from "./components/Head/Head";
+import HeadContainer from "./components/Head/HeadContainer";
 import SideBar from "./components/SideBar/SideBar";
 import Settings from "./components/Profile/Settings/Settings";
-
 import ChatsContainer from "./components/Profile/chats/ChatsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import UsersContainer from "./components/Profile/Users/UsersContainer"
+import Loader from "./components/Assets/Loader";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const App = () => {
 
   return (
       <div className="App-w">
-        <Head />
+        <HeadContainer />
         <div className="App-w-content">
           <Routes>
             <Route
@@ -21,7 +21,7 @@ const App = () => {
               element={<ChatsContainer/>}
             />
             <Route
-              path="/Profile"
+              path="/Profile/:profileId?"
               element={<ProfileContainer/>}
             />
             <Route
@@ -32,6 +32,12 @@ const App = () => {
               path="/Settings"
               element={<Settings />}
             />
+            <Route
+              path="/Loader"
+              element={<Loader />}
+            />
+            
+
           </Routes>
         </div>
         <SideBar />

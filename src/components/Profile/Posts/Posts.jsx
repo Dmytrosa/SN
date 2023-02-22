@@ -4,8 +4,7 @@ import Post from "./Post/Post";
 
 const PostArea = (props) => {
   
-  debugger
-  let postsrender = props.state.profilepage.postsinfo.map(p => {
+  let postsrender = props.postsinfo.map(p => {
     return <Post id={p.id} text={p.text} title={p.title} date={p.date} />;
   });
   return (

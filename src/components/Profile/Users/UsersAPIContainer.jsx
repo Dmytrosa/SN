@@ -1,28 +1,26 @@
 import React from "react";
 import axios from 'axios';
 import UsersBar from "./UserBar/UsersBar"
+import {GetUsers} from "../../../api/api"
 
 class UsersAPIContainer extends React.Component{
-    debugger
      componentDidMount =()=> {
-        // debugger
         this.props.TogleIsFetching(true);
-         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-           .then(response => {
+        GetUsers(this.props.currentPage, this.props.pageSize)
+           .then(data => {
             this.props.TogleIsFetching(false);
-             this.props.SetUsers(response.data.items)
-             this.props.SetTotalUsersCount(response.data.totalCount)
+             this.props.SetUsers(data.items)
+             this.props.SetTotalUsersCount(data.totalCount)
            });
        }
      
       onPageChanged = (pageNumber) => {
-         //debugger
          this.props.TogleIsFetching(true);
          this.props.SetCurrentPage(pageNumber);
-         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-           .then(response => {
+         GetUsers(pageNumber, this.props.pageSize)
+           .then(data => {
             this.props.TogleIsFetching(false);
-             this.props.SetUsers(response.data.items);
+             this.props.SetUsers(data.items);
            })
        }
 render()
