@@ -1,6 +1,7 @@
 import React from "react";
 import q from "./Profile.module.css";
 import Posts from "./Posts/Posts";
+import Status from "./Status";
 import Loader from "../Assets/Loader";
 
 const Profile= (props)=> {
@@ -19,7 +20,7 @@ const Profile= (props)=> {
 
   }
 if (!props.profile){
-  return(<Loader/>)}
+  return(<Loader />)}
     return (
       
       <div className="main">
@@ -33,7 +34,7 @@ if (!props.profile){
           <h2>Я рижа mавпа</h2>
           <div>   image  </div>
           <h4>
-            Status:  <span> Я рижа мавпа</span>
+            Status:  <Status {...props}/>
           </h4>
           <div className={q.WordPosts}>POSTS</div>
           <div>

@@ -84,88 +84,45 @@
 //   }
 // }
 
-
-
-
 import React from "react";
 import q from "./../Users.module.css";
 import userPhoto from "../../../../additions/UsersAva.jpg";
 import Reloader from "../../../Assets/Loader"
 import { NavLink } from "react-router-dom";
-import { Unfollow, Follow } from "../../../../api/api";
 // import axios from "axios";
 
 const UsersBar=(props)=>{
-  let pagesCount = Math.ceil(props.props.totalUsersCount / props.props.pageSize);
-  pagesCount= 10;
+  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  pagesCount= 29;
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-  // debugger
 return(
   <div>
 
-    {props.props.isFetching? <Reloader/> :<>
+    {props.isFetching? <Reloader/> :<>
     <div>
-        {pages.map(p => { return <span className={props.props.currentPage === p && q.selectedPage}
-            onClick={() => { props.onPageChanged(p) }} >_{p}_</span>
+        {pages.map(p =>  { return  <span className={props.currentPage === p && q.selectedPage}
+            onClick={ () =>  {props.onPageChanged(p) } } > _{p}_</span>
         })}
       </div>
-      {props.props.usersinfo.map(u =>  <div key={u.id}>
+      {props.usersinfo.map(u =>  <div key={u.id}>
         <span>
-          
           <div>
           <NavLink
-          
             to={'./../Profile/'+u.id}>
             <img  src={u.photos.small != null ? u.photos.small : userPhoto} className={q.Ava} alt="aboba" />
             </NavLink> 
-
           </div>
           <div>
             {u.followed ?
-            
               <button 
-                disabled={props.props.isFetchingFollowing.some(id => id === u.id)} 
-              onClick={() => { 
-                props.props.TogleIsFetchingFollowing(true, u.id)
-                Unfollow(u.id)
-                // axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{
-                //   withCredentials: true,
-                //   headers:{"API-KEY": "34000a0a-8661-49d6-8fb7-04c1af10a555"}
-                // })
-                .then(response => {
-
-                  if(response.resultCode == 0 ){
-                    props.props.UnSub(u.id)
-                  }
-                 props.props.CleanTogleIsFetchingFollowing();
-                });
-
-                 }}>unfollow</button>
-
+                disabled={props.isFetchingFollowing.some(id => id === u.id)} 
+              onClick={() => {props.UnFollowThunk(u.id)}}>unfollow</button>
               : <button
-               disabled={props.props.isFetchingFollowing.some(id => id === u.id)}
-               onClick={() => {
-                props.props.TogleIsFetchingFollowing(true, u.id)
-
-                //  debugger 
-                Follow(u.id)
-                // axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},{
-                //   withCredentials: true,
-                //   headers:{"API-KEY": "34000a0a-8661-49d6-8fb7-04c1af10a555"}
-                // })
-                .then(response => {
-                  debugger
-                  props.props.CleanTogleIsFetchingFollowing();
-                  if(response.resultCode == 0 ){
-               
-                    props.props.Sub(u.id)
-                  }
-
-                });
-                 }}>follow</button>}
+               disabled={props.isFetchingFollowing.some(id => id === u.id)}
+               onClick={() => {props.FollowThunk(u.id)}}>follow</button>}
           </div>
           <div>{u.name}</div>
         </span>

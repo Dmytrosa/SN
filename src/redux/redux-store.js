@@ -1,5 +1,5 @@
-import { applyMiddleware, combineReducers , legacy_createStore as createStore } from "redux";
-
+import {applyMiddleware,  combineReducers , legacy_createStore as createStore } from "redux";
+import thunkMiddleware from "redux-thunk"
 import ProfileReducer from "./profileReducer";
 import ChatsReducer from "./chatsReduser";
 import UsersReducer from "./usersReduser";
@@ -15,7 +15,7 @@ let reducers = combineReducers(
 
 
 
-let store = createStore (reducers, applyMiddleware());
+let store = createStore (reducers, applyMiddleware(thunkMiddleware));
 
 window.store=store;
 

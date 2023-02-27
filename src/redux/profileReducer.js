@@ -1,8 +1,10 @@
+import { ProfileApi } from "../api/api";
 const POSTADDING = () => 'POST-ADDING';
 const REWRITENEWPOSTTITLE = () => 'REWRITE-NEW-POST-TITLE';
 const REWRITENEWPOSTTEXT = () => 'REWRITE-NEW-POST-TEXT';
 const GETDATA = () => 'GET-DATA';
 const VIEWUSERPROFILE =() =>'VIEW-USER-PROFILE';
+const GETSTATUS = () => 'GET-STATUS';
 
 let initialState = {
   postsinfo: [
@@ -10,7 +12,8 @@ let initialState = {
   ],
   newposttitletext: '',
   newposttexttext: '',
-  profile:null
+  profile:null,
+  status:null,
 };
 
 
@@ -49,13 +52,20 @@ const profileReducer = (state = initialState, action) => {
       }
     case VIEWUSERPROFILE:
       {
-        debugger
         return{
           
           ...state, 
           profile: action.profile
         };
       }
+      case GETSTATUS:
+        {
+          return{
+            
+            ...state, 
+            status: action.status
+          };
+        }
     default:
       return state;
   }
@@ -77,6 +87,25 @@ export const ViewUserProfile =
 export const GetData =
   () => ({ type: GETDATA });
 
+export const ApdateStatus =
+  (status) => ({ type: GETSTATUS, status });
 
+
+export const GetStatusThunk = (id) =>{ return (dispatch) =>{
+    ProfileApi.GetStatus(id)
+       .then(data => {
+        dispatch(ApdateStatus(data));
+       });
+  }}
+
+export const SetStatusThunk = (status) =>{ return (dispatch) =>{
+    ProfileApi.SetStatus(status)
+       .then(data => {
+        if(data.resultCode === 0 ){
+          dispatch(ApdateStatus(status));
+        }
+        
+       });
+  }}
 
 export default profileReducer;

@@ -1,3 +1,4 @@
+import { GetUsers, Follow, Unfollow } from "../api/api";
 const SUB = () => 'SUB';
 const UNSUB = () => 'UNSUB';
 const SETUSERS =() =>"SET_USERS"
@@ -10,12 +11,10 @@ const CLEANISFETCHINGFOLLOWING =()=>"CLEAN_IS_FETCHING_FOLLOWING"
 let initialState = {
     usersinfo: [],
     pageSize: 5,
-    totalUsersCount: 20,
+    totalUsersCount: null,
     currentPage:1,
     isFetching : false,
-    isFetchingFollowing:
-    //  false
-     [],
+    isFetchingFollowing: [],
 };
 
 
@@ -104,5 +103,42 @@ export const TogleIsFetchingFollowing  =
 
 export const CleanTogleIsFetchingFollowing  =
   () => ({type: CLEANISFETCHINGFOLLOWING});
+
+
+export const GetUsersThunk = (currentPage, pageSize) =>{ return (dispatch) =>{
+  dispatch(TogleIsFetching(true));
+  GetUsers(currentPage,pageSize)
+     .then(data => {
+      dispatch(SetCurrentPage(currentPage));
+      dispatch(TogleIsFetching(false));
+      dispatch(SetUsers(data.items))
+      dispatch(SetTotalUsersCount(data.totalCount))
+     });
+}}
+
+export const FollowThunk = (userId) =>{ return (dispatch) =>{
+  debugger
+  dispatch(TogleIsFetchingFollowing(true, userId))
+  Follow(userId)
+  .then(response => {
+    debugger
+    if(response.resultCode == 0 ){
+      dispatch(Sub(userId))
+    }
+    dispatch(CleanTogleIsFetchingFollowing())
+  });
+}}
+
+
+export const  UnFollowThunk = (userId) =>{ return (dispatch) =>{
+  dispatch(TogleIsFetchingFollowing(true, userId))
+  Unfollow(userId)
+  .then(response => {
+    if(response.resultCode == 0 ){
+      dispatch(UnSub(userId))
+    }
+    dispatch(CleanTogleIsFetchingFollowing())
+  });
+}}
 
 export default usersReducer;

@@ -39,28 +39,39 @@ import {
   PostAdding,
   RewriteNewPostTitle,
   RewriteNewPostText,
-  ViewUserProfile
-} from "../../redux/profileReducer";
+  ViewUserProfile,
+  GetStatusThunk,
+  SetStatusThunk,
+    }
+ from "../../redux/profileReducer";
 import { connect } from "react-redux";
 import {
   useLocation,
   useNavigate,
   useParams,
 } from "react-router-dom";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { compose } from "redux";
 
 
 class ProfileContainer extends React.Component {
 
   componentDidMount() {
-    let userId = this.props.router.params.userId;
+    
+
+    let userId = this.props.router.params.profileId;
     if (!userId) {
       userId = 27999
     }
-    debugger
     axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
       .then(response => {
         this.props.ViewUserProfile(response.data)
       });
+      
+      debugger
+      this.props.GetStatusThunk(userId)
+  }
+  onPageChanged(){
   }
 
 
@@ -77,6 +88,7 @@ let mapStateToProps = (state) => {
     newTextBody: state.profilepage.newposttexttext,
     profile: state.profilepage.profile,
     postsinfo: state.profilepage.postsinfo,
+    status:state.profilepage.status,
     state: state,
   }
 }
@@ -92,9 +104,14 @@ let mapDispatchToProps = (dispatch) => {
       dispatch(RewriteNewPostText(text));
     },
     ViewUserProfile: (profile) => {
-      debugger
       dispatch(ViewUserProfile(profile));
     },
+    GetStatusThunk: (id) =>{
+      dispatch(GetStatusThunk(id))
+    },
+    SetStatusThunk: (status) =>{
+      dispatch(SetStatusThunk(status))
+    }
   }
 }
 
@@ -114,4 +131,9 @@ function withRouter(Component) {
   return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileContainer));
+
+ export default compose (
+  connect(mapStateToProps, mapDispatchToProps) ,
+  withAuthRedirect,
+  withRouter
+)(ProfileContainer)

@@ -36,7 +36,9 @@ const App = () => {
               path="/Loader"
               element={<Loader />}
             />
-            
+            <Route
+              path="/Login"
+            />
 
           </Routes>
         </div>

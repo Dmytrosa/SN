@@ -6,12 +6,15 @@ import {Sub,
                    SetTotalUsersCount,
                           TogleIsFetching,
                                     TogleIsFetchingFollowing,
-                                                     CleanTogleIsFetchingFollowing
+                                                     CleanTogleIsFetchingFollowing,
+                                                                                GetUsersThunk,
+                                                     FollowThunk,
+                                    UnFollowThunk
         } from "../../../redux/usersReduser";
 import {connect} from "react-redux";
+import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 
 let mapStateToProps = (state) =>{
- // debugger
     return{
       usersinfo: state.userspage.usersinfo,
       pageSize: state.userspage.pageSize,
@@ -21,10 +24,11 @@ let mapStateToProps = (state) =>{
       isFetchingFollowing: state.userspage.isFetchingFollowing,
     }
     }
+
     
-    
-    const UsersContainer = connect 
+    const UsersContainer =     withAuthRedirect(connect 
     (mapStateToProps,
       {Sub, UnSub, SetUsers, SetCurrentPage, SetTotalUsersCount,
-          TogleIsFetching, TogleIsFetchingFollowing, CleanTogleIsFetchingFollowing})(UsersAPIContainer);
+          TogleIsFetching, TogleIsFetchingFollowing, CleanTogleIsFetchingFollowing,
+          GetUsersThunk, FollowThunk, UnFollowThunk})(UsersAPIContainer));
     export default UsersContainer;
