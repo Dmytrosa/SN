@@ -5,9 +5,11 @@ import Settings from "./components/Profile/Settings/Settings";
 import ChatsContainer from "./components/Profile/chats/ChatsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import UsersContainer from "./components/Profile/Users/UsersContainer"
+import LoginContainer from "./components/Head/Login/LoginContainer"
 import Loader from "./components/Assets/Loader";
-
 import { Route, Routes } from "react-router-dom";
+
+
 
 const App = () => {
 
@@ -38,6 +40,7 @@ const App = () => {
             />
             <Route
               path="/Login"
+              element={<LoginContainer />}
             />
 
           </Routes>

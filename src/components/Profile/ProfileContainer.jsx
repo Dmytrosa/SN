@@ -33,7 +33,7 @@
 
 
 import React from "react";
-import Profile from "./Profile";
+import {Profile} from "./Profile";
 import axios from 'axios';
 import {
   PostAdding,
@@ -61,14 +61,13 @@ class ProfileContainer extends React.Component {
 
     let userId = this.props.router.params.profileId;
     if (!userId) {
-      userId = 27999
+      userId = 28222
     }
     axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
       .then(response => {
         this.props.ViewUserProfile(response.data)
       });
       
-      debugger
       this.props.GetStatusThunk(userId)
   }
   onPageChanged(){
@@ -94,8 +93,8 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    AddPost: () => {
-      dispatch(PostAdding());
+    AddPost: (header, text) => {
+      dispatch(PostAdding(header, text));
     },
     ChangeNewPostTitle: (text) => {
       dispatch(RewriteNewPostTitle(text));
@@ -133,7 +132,7 @@ function withRouter(Component) {
 
 
  export default compose (
-  connect(mapStateToProps, mapDispatchToProps) ,
+  connect(mapStateToProps, mapDispatchToProps),
   withAuthRedirect,
   withRouter
 )(ProfileContainer)

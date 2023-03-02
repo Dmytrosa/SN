@@ -1,4 +1,6 @@
 import React from "react";
+import q from"../Assets/Form.module.css";
+
 class Status extends React.Component {
     state = {
         isFetching: false,
@@ -18,30 +20,30 @@ class Status extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        debugger
         if(prevProps.status !== this.props.status){
             this.setState({ status  : this.props.status})
         }
     }
 
     render() {
-debugger
 console.log("render")
         return (
-            <div className="main">
+            <div className={q.body}>
+                <div className={q.status}>
                 {
                     !this.state.isFetching &&
-                    <div>
-                       <span onDoubleClick={this.activateFetching} >{this.props.status}</span>
+                    <div className={q.st}>
+                       <span  className={q.sttext}  onDoubleClick={this.activateFetching} > Статус: {this.props.status}</span>
                     </div>
                 }
                 {
                     this.state.isFetching &&
                     <div>
-                        <input type="text" autoFocus={true} value = {this.state.status} onChange={this.onStatusChangeLogic} />
+                        <input  type="text" autoFocus={true} value = {this.state.status} onChange={this.onStatusChangeLogic} />
                     </div>
                 }
-                <button onClick={this.deactivateFetching}>Submit</button>
+                <button className={q.resetStatus} type="submit" onClick={this.deactivateFetching}>Підтвердити</button>
+                </div>
             </div>
 
         );

@@ -93,7 +93,7 @@ import { NavLink } from "react-router-dom";
 
 const UsersBar=(props)=>{
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-  pagesCount= 29;
+  pagesCount= 70;
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
@@ -132,3 +132,5 @@ return(
 )
 }
  export default UsersBar
+
+

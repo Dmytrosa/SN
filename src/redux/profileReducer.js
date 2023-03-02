@@ -8,10 +8,8 @@ const GETSTATUS = () => 'GET-STATUS';
 
 let initialState = {
   postsinfo: [
-    { id: 0, text: "раша параша", title: "Новини", date: "15:10:2022" },
+    { id: 0, text: "раша параша", title: "Новини", date: "11:01:1011" },
   ],
-  newposttitletext: '',
-  newposttexttext: '',
   profile:null,
   status:null,
 };
@@ -25,15 +23,13 @@ const profileReducer = (state = initialState, action) => {
       {
         let postadd = {
           id: 1,
-          text: state.newposttexttext,
-          title: state.newposttitletext,
+          text: action.text,
+          title: action.header,
           date: "123",
         };
         return {
           ...state,
           postsinfo: [...state.postsinfo, postadd],
-          newposttitletext: '',
-          newposttexttext: ''
         };
       }
     case REWRITENEWPOSTTITLE:
@@ -72,7 +68,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const PostAdding =
-  () => ({ type: POSTADDING });
+  (header, text) => ({ type: POSTADDING, header, text });
 
 export const RewriteNewPostTitle =
   (postaddingtitle) => ({ type: REWRITENEWPOSTTITLE, postaddingtitle});
