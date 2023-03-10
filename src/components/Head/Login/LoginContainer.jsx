@@ -22,7 +22,8 @@ class LoginContainer extends React.Component {
 let mapStateToProps = (state) => {
 
   return {
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    fail: state.auth.fail
   }
 }
 
@@ -37,9 +38,6 @@ let mapDispatchToProps = (dispatch) => {
       },
   }
 }
-
-
-
 
  export default compose (
   connect(mapStateToProps, mapDispatchToProps)

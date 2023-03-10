@@ -3,12 +3,14 @@ import { AuthApi } from "../api/api";
 const SETUSERDATA = () => 'SET_USER_DATA';
 const TRUEISAUTH = () =>'APPDATE_IS_AUTH' ;
 const FALSEISAUTH = () =>'DELETE_IS_AUTH' ;
+const SETFAIL =() =>'SET_FAIL';
 
 let initialState = {
     userId:null,
     email:null,
     login:null,
     isAuth: false,
+    fail: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -36,6 +38,14 @@ const authReducer = (state = initialState, action) => {
             isAuth: false,
            }
        }
+       case SETFAIL:
+            {
+              debugger
+           return {
+               ...state,
+            fail: action.messege,
+           }
+       }
         default:
             return state;
     }
@@ -47,11 +57,21 @@ export const TrueIsAuth =
   () => ({ type: TRUEISAUTH} );
 export const FalseIsAuth =
   () => ({ type: FALSEISAUTH} );
+  export const SetFail =
+  (messege) => ({ type: SETFAIL, messege} );
 
   export const LoginThunk = (email, password, remember) =>{ return (dispatch) =>{
     AuthApi.Login(email, password, remember)
        .then(data => {
+        if(data.resultCode === 0 ){
         dispatch(TrueIsAuth(data));
+        }
+        if(data.resultCode === 1 ){
+          dispatch(SetFail(data.messages));
+          }
+        if(data.resultCode === 10 ){
+          dispatch(SetFail(data.messages));
+            }  
        });
   }}
 

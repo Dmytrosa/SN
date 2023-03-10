@@ -49,6 +49,7 @@ export const ProfileApi = {
 export const AuthApi = {
     Login(email, password, rememberMe) {
         return (
+        
             instance.post(`auth/login/`, { email, password, rememberMe })
         )
             .then(response => response.data)
