@@ -1,4 +1,5 @@
 import axios from "axios"
+import { SetAuthUserData } from "../redux/authReducer"
 
 const instance = axios.create({
     withCredentials: true,
@@ -41,15 +42,18 @@ export const ProfileApi = {
 
     GetStatus(id) {
         return (instance.get(`profile/status/${id}`))
-        
-        .then(response => response.data)
-        
-    }
+            .then(response => response.data)
+    },
+
+    GetUserRpofile(userid, func) {
+        return (instance.get(`profile/ ${userid}`))
+            .then(response => func? func(response.data): response.data);
+    },
 }
 export const AuthApi = {
     Login(email, password, rememberMe) {
         return (
-        
+
             instance.post(`auth/login/`, { email, password, rememberMe })
         )
             .then(response => response.data)
@@ -57,9 +61,15 @@ export const AuthApi = {
 
     Logout() {
         return (instance.delete(`auth/login`))
-        
-        .then(response => response.data)
-        
+
+            .then(response => response.data)
+
+    },
+
+    GetAuthUserData() {
+        return (instance.get(`auth/me`))
+
+            .then(response => response.data);
     }
 }
 

@@ -2,25 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { compose } from "redux";
-import { LoginThunk,LogoutThunk } from "../../../redux/authReducer";
-import {Login} from "./Login";
+import { LoginThunk, LogoutThunk } from "../../../redux/authReducer";
+import { Login } from "./Login";
 
-class LoginContainer extends React.Component {
-
-  componentDidMount() {}
-  
-  onPageChanged(){}
-
-
-  render() {
-    return   (this.props.isAuth)? <Navigate to ='/Profile' /> :<Login {...this.props}   />
-  }
-
+const LoginContainer = (props) => {
+  return (props.isAuth) ? <Navigate to='/Profile' /> : <Login {...props} />
 };
 
-
 let mapStateToProps = (state) => {
-
   return {
     isAuth: state.auth.isAuth,
     fail: state.auth.fail
@@ -32,13 +21,12 @@ let mapDispatchToProps = (dispatch) => {
     Login_: (email, password, remember) => {
       dispatch(LoginThunk(email, password, remember));
     },
-    
     Logout: () => {
-        dispatch(LogoutThunk());
-      },
+      dispatch(LogoutThunk());
+    },
   }
 }
 
- export default compose (
+export default compose(
   connect(mapStateToProps, mapDispatchToProps)
 )(LoginContainer)

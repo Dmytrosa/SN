@@ -1,40 +1,5 @@
-
-// const ProfileContainer = (props) => {
-
-//   let state = props.store.getState().profilepage;   
-
-//   let AddPost = () => {
-//     props.store.dispatch(PostAdding());
-//     props.store.dispatch(RewriteNewPostText(''));
-//     props.store.dispatch(RewriteNewPostTitle('') );
-//   };
-
-//   let ChangeNewPostTitle = (e) => {
-//     let titletext = e.target.value;
-//     props.store.dispatch(RewriteNewPostTitle(titletext));
-//   }
-
-//   let ChangeNewPostText = (e) => {
-//     let texttext = e.target.value;
-//     props.store.dispatch(RewriteNewPostText(texttext));
-//   }
-//   return (
-// <Profile 
-// AddPost = {AddPost} 
-// ChangeNewPostTitle={ChangeNewPostTitle} 
-// ChangeNewPostText ={ChangeNewPostText} 
-// state = {state}
-// newTitleBody ={state.newposttitletext}
-// newTextBody ={state.newposttexttext}
-// />
-//   );
-// };
-
-
-
-import React from "react";
-import {Profile} from "./Profile";
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import Profile from "./Profile";
 import {
   PostAdding,
   RewriteNewPostTitle,
@@ -52,32 +17,26 @@ import {
 } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
+import { ProfileApi } from "../../api/api";
 
-
-class ProfileContainer extends React.Component {
-
-  componentDidMount() {
-    
-
-    let userId = this.props.router.params.profileId;
-    if (!userId) {
-      userId = 28222
-    }
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
-      .then(response => {
-        this.props.ViewUserProfile(response.data)
-      });
-      
-      this.props.GetStatusThunk(userId)
-  }
-  onPageChanged(){
-  }
-
-
-  render() {
-    return <Profile  {...this.props} />
-  }
+ const ProfileContainer= (props)=>  {
+  function DidMount() {
+    useEffect(() => {let userId = props.router.params.profileId;
+          if (!userId) {
+            userId = props.state.auth.userId
+          }
+        ProfileApi.GetUserRpofile(userId, props.ViewUserProfile)
+        props.GetStatusThunk(userId)
+        }, []);
+    return (
+      <div>
+        <Profile  {...props} />
+      </div>
+    );
+  };
+ return DidMount()
 };
+
 
 
 let mapStateToProps = (state) => {

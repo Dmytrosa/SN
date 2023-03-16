@@ -4,12 +4,14 @@ import ProfileReducer from "./profileReducer";
 import ChatsReducer from "./chatsReduser";
 import UsersReducer from "./usersReduser";
 import AuthReducer from "./authReducer";
+import AppReducer from "./appReducer";
 let reducers = combineReducers(
     {
         profilepage: ProfileReducer,
         chatspage: ChatsReducer,
         userspage: UsersReducer,
         auth: AuthReducer,
+        app: AppReducer,
     }
 );
 

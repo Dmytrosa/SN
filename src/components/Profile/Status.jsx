@@ -1,55 +1,48 @@
-import React from "react";
-import q from"../Assets/Form.module.css";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import q from "../Assets/Form.module.css";
 
-class Status extends React.Component {
-    state = {
-        isFetching: false,
-        status: this.props.status,
-    }
-    activateFetching = () => {
-        this.setState({isFetching: true}) 
-    }
+const Status = React.memo((props) => {
 
-    deactivateFetching = () => {
-        this.setState({ isFetching: false })
-         this.props.SetStatusThunk(this.state.status)
+    const [isFetching, setisFetching] = useState(false);
+    const [status, setstatus] = useState(props.status);
+
+    const activateFetching = () => {
+        setisFetching(true)
     }
 
-    onStatusChangeLogic =(e) =>{
-        this.setState({ status: e.target.value})
+    const deactivateFetching = () => {
+        setisFetching(false)
+        props.SetStatusThunk(status)
     }
 
-    componentDidUpdate(prevProps, prevState){
-        if(prevProps.status !== this.props.status){
-            this.setState({ status  : this.props.status})
-        }
+    const onStatusChangeLogic = (e) => {
+        setstatus(e.target.value)
     }
 
-    render() {
-console.log("render")
-        return (
-            <div className={q.body}>
-                <div className={q.status}>
+    useEffect(() => {
+        setstatus(props.status)
+    }, [props.status])
+
+    return (
+        <div className={q.body}>
+            <div className={q.status}>
                 {
-                    !this.state.isFetching &&
+                    !isFetching &&
                     <div className={q.st}>
-                       <span  className={q.sttext}  onDoubleClick={this.activateFetching} > Статус: {this.props.status}</span>
+                        <span className={q.sttext} onDoubleClick={activateFetching} > Статус: {status}</span>
                     </div>
                 }
                 {
-                    this.state.isFetching &&
+                    isFetching &&
                     <div>
-                        <input  type="text" autoFocus={true} value = {this.state.status} onChange={this.onStatusChangeLogic} />
+                        <input type="text" autoFocus={true} value={status} onChange={onStatusChangeLogic} />
                     </div>
                 }
-                <button className={q.resetStatus} type="submit" onClick={this.deactivateFetching}>Підтвердити</button>
-                </div>
+                <button className={q.resetStatus} type="submit" onClick={deactivateFetching}>Підтвердити</button>
             </div>
-
-        );
-    }
-
-
-}
+        </div>
+    );
+})
 
 export default Status;

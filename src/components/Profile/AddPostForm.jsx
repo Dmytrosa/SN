@@ -26,15 +26,9 @@ export const Form = (props) => {
         })
 
         const onSubmit = data => {
-            console.log(data)
             props.AddPost(data.header, data.text)
             reset();
         }
-
-        // console.log(errors, formState )
-
-
-        debugger
         return (
             <div className={q.body}>
             <form className={q.form} onSubmit={handleSubmit(onSubmit)}>

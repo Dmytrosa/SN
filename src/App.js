@@ -8,27 +8,41 @@ import UsersContainer from "./components/Profile/Users/UsersContainer"
 import LoginContainer from "./components/Head/Login/LoginContainer"
 import Loader from "./components/Assets/Loader";
 import { Route, Routes } from "react-router-dom";
+// import { Component } from "react";
+import { connect } from "react-redux";
+import { InitApp } from "./redux/appReducer";
+import { PureComponent } from "react";
+
+class App extends PureComponent {
 
 
+  componentDidMount() {
+    this.props.InitApp()
 
-const App = () => {
 
-  return (
+  }
+  render() {
+   
+   if ( !this.props.isInit){
+    return <Loader/>
+   }
+    return (
+     
       <div className="App-w">
         <HeadContainer />
         <div className="App-w-content">
           <Routes>
             <Route
               path="/Chats"
-              element={<ChatsContainer/>}
+              element={<ChatsContainer />}
             />
             <Route
               path="/Profile/:profileId?"
-              element={<ProfileContainer/>}
+              element={<ProfileContainer />}
             />
             <Route
               path="/Users"
-              element={<UsersContainer/>}
+              element={<UsersContainer />}
             />
             <Route
               path="/Settings"
@@ -42,13 +56,17 @@ const App = () => {
               path="/Login"
               element={<LoginContainer />}
             />
-
           </Routes>
         </div>
         <SideBar />
       </div>
-     
-  );
+    );
+  }
 };
+const mapStateToProps =(state) => {
+  return {
+  isInit: state.app.isInit
+  }
+}
 
-export default App;
+export default connect(mapStateToProps, { InitApp })(App);

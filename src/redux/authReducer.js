@@ -40,7 +40,6 @@ const authReducer = (state = initialState, action) => {
        }
        case SETFAIL:
             {
-              debugger
            return {
                ...state,
             fail: action.messege,
@@ -84,6 +83,16 @@ export const FalseIsAuth =
         
        });
   }}
+  export const GetAuthUserDataThunk = () => (dispatch) =>{
+   return AuthApi.GetAuthUserData()
+       .then(data => {
+        if (data.resultCode === 0){
+              let {id, login, email } = data.data;
+            dispatch( SetAuthUserData(id, email, login, true))
+            }
+        
+       });
+  }
 
 
 export default authReducer;

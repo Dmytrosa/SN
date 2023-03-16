@@ -1,6 +1,9 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import UsersBar from "./UserBar/UsersBar"
-class UsersAPIContainer extends React.Component{
+class UsersAPIContainer extends PureComponent{
+  
+
+
      componentDidMount =()=> {
       this.props.GetUsersThunk(this.props.currentPage, this.props.pageSize)
        }
@@ -8,7 +11,9 @@ class UsersAPIContainer extends React.Component{
          this.props.GetUsersThunk(pageNumber, this.props.pageSize)
        }
 render()
-{return <UsersBar {...this.props} componentDidMount={this.componentDidMount} onPageChanged ={this.onPageChanged} />
+{
+
+  return <UsersBar {...this.props} componentDidMount={this.componentDidMount} onPageChanged ={this.onPageChanged} />
 }
 
 

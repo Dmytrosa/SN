@@ -23,7 +23,6 @@ const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SUB:
              {
-               debugger
             return {
               ...state,
               usersinfo: state.usersinfo.map(u =>{if (u.id ===action.userId)
@@ -34,7 +33,6 @@ const usersReducer = (state = initialState, action) => {
         }
         case UNSUB:
              {
-              //  debugger
             return {
               ...state,
               usersinfo: state.usersinfo.map(u =>{if (u.id ===action.userId)
@@ -45,7 +43,6 @@ const usersReducer = (state = initialState, action) => {
         }
         case SETUSERS:
             {
-                //  debugger
                 return {...state, usersinfo:action.users}
             }
         case SETCURRENTPAGE:
@@ -117,11 +114,9 @@ export const GetUsersThunk = (currentPage, pageSize) =>{ return (dispatch) =>{
 }}
 
 export const FollowThunk = (userId) =>{ return (dispatch) =>{
-  debugger
   dispatch(TogleIsFetchingFollowing(true, userId))
   Follow(userId)
   .then(response => {
-    debugger
     if(response.resultCode == 0 ){
       dispatch(Sub(userId))
     }
