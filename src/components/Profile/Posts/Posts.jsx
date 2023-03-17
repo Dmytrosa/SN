@@ -10,11 +10,10 @@ const PostArea = (props) => {
   }); 
   return (
    
-    <div className="main">
       <div className={q.post}>{postsrender}</div>
-    </div>
   );
 };
+
 export default
  React.memo(
   PostArea

@@ -3,15 +3,15 @@ const POSTADDING = () => 'POST-ADDING';
 const REWRITENEWPOSTTITLE = () => 'REWRITE-NEW-POST-TITLE';
 const REWRITENEWPOSTTEXT = () => 'REWRITE-NEW-POST-TEXT';
 const GETDATA = () => 'GET-DATA';
-const VIEWUSERPROFILE =() =>'VIEW-USER-PROFILE';
+const VIEWUSERPROFILE = () => 'VIEW-USER-PROFILE';
 const GETSTATUS = () => 'GET-STATUS';
 
 let initialState = {
   postsinfo: [
     { id: 0, text: "раша параша", title: "Новини", date: "11:01:1011" },
   ],
-  profile:null,
-  status:null,
+  profile: null,
+  status: null,
 };
 
 
@@ -48,20 +48,20 @@ const profileReducer = (state = initialState, action) => {
       }
     case VIEWUSERPROFILE:
       {
-        return{
-          
-          ...state, 
+        return {
+
+          ...state,
           profile: action.profile
         };
       }
-      case GETSTATUS:
-        {
-          return{
-            
-            ...state, 
-            status: action.status
-          };
-        }
+    case GETSTATUS:
+      {
+        return {
+
+          ...state,
+          status: action.status
+        };
+      }
     default:
       return state;
   }
@@ -71,7 +71,7 @@ export const PostAdding =
   (header, text) => ({ type: POSTADDING, header, text });
 
 export const RewriteNewPostTitle =
-  (postaddingtitle) => ({ type: REWRITENEWPOSTTITLE, postaddingtitle});
+  (postaddingtitle) => ({ type: REWRITENEWPOSTTITLE, postaddingtitle });
 
 export const RewriteNewPostText =
   (postaddingtext) => ({ type: REWRITENEWPOSTTEXT, postaddingtext });
@@ -87,21 +87,20 @@ export const ApdateStatus =
   (status) => ({ type: GETSTATUS, status });
 
 
-export const GetStatusThunk = (id) =>{ return (dispatch) =>{
-    ProfileApi.GetStatus(id)
-       .then(data => {
-        dispatch(ApdateStatus(data));
-       });
-  }}
+export const GetStatusThunk = (id) => {
+  return async (dispatch) => {
+    let data = await ProfileApi.GetStatus(id)
+    dispatch(ApdateStatus(data));
+  }
+}
 
-export const SetStatusThunk = (status) =>{ return (dispatch) =>{
-    ProfileApi.SetStatus(status)
-       .then(data => {
-        if(data.resultCode === 0 ){
-          dispatch(ApdateStatus(status));
-        }
-        
-       });
-  }}
+export const SetStatusThunk = (status) => {
+  return async (dispatch) => {
+    let data = await ProfileApi.SetStatus(status)
+    if (data.resultCode === 0) {
+      dispatch(ApdateStatus(status));
+    }
+  }
+}
 
 export default profileReducer;

@@ -8,16 +8,16 @@ import {
   GetStatusThunk,
   SetStatusThunk,
     }
- from "../../redux/profileReducer";
+ from "../../../redux/profileReducer";
 import { connect } from "react-redux";
 import {
   useLocation,
   useNavigate,
   useParams,
 } from "react-router-dom";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from "redux";
-import { ProfileApi } from "../../api/api";
+import { ProfileApi } from "../../../api/api";
 
  const ProfileContainer= (props)=>  {
   function DidMount() {

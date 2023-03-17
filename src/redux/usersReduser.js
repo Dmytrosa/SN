@@ -102,38 +102,36 @@ export const CleanTogleIsFetchingFollowing  =
   () => ({type: CLEANISFETCHINGFOLLOWING});
 
 
-export const GetUsersThunk = (currentPage, pageSize) =>{ return (dispatch) =>{
+export const GetUsersThunk = (currentPage, pageSize) =>{ return async(dispatch) =>{
   dispatch(TogleIsFetching(true));
-  GetUsers(currentPage,pageSize)
-     .then(data => {
+ let data= await GetUsers(currentPage,pageSize)
       dispatch(SetCurrentPage(currentPage));
       dispatch(TogleIsFetching(false));
       dispatch(SetUsers(data.items))
       dispatch(SetTotalUsersCount(data.totalCount))
-     });
 }}
 
-export const FollowThunk = (userId) =>{ return (dispatch) =>{
+export const FollowThunk = (userId) =>{ return async(dispatch) =>{
   dispatch(TogleIsFetchingFollowing(true, userId))
-  Follow(userId)
-  .then(response => {
+  let response= await Follow(userId)
+  
     if(response.resultCode == 0 ){
       dispatch(Sub(userId))
     }
     dispatch(CleanTogleIsFetchingFollowing())
-  });
+  
 }}
 
 
-export const  UnFollowThunk = (userId) =>{ return (dispatch) =>{
+export const  UnFollowThunk = (userId) =>{ return async(dispatch) =>{
   dispatch(TogleIsFetchingFollowing(true, userId))
-  Unfollow(userId)
-  .then(response => {
+  let response= await Unfollow(userId)
+
     if(response.resultCode == 0 ){
       dispatch(UnSub(userId))
     }
     dispatch(CleanTogleIsFetchingFollowing())
-  });
+
 }}
 
 export default usersReducer;

@@ -3,7 +3,7 @@ color: rgb(28, 131, 131);
 text-decoration: none;
 display: grid;
 grid-template-areas: 
-"P C"
+"P C"   
 "S N";
 grid-template-rows: 120px 120px;
 grid-template-columns: 120px 120px;
@@ -15,6 +15,7 @@ grid-gap: 8px;
     border-radius: 30%;
 }
 .block{    border-radius: 30%;
+    
 }
 
 .center{
@@ -26,6 +27,7 @@ grid-gap: 8px;
 .Pro{
     grid-area: P;
     background-color: beige;
+    
 }
 .Set{
     grid-area: S;

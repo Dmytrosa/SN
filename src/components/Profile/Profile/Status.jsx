@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import q from "../Assets/Form.module.css";
+import q from "../../Assets/Form.module.css";
 
 const Status = React.memo((props) => {
 

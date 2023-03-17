@@ -1,10 +1,10 @@
 import React from "react";
 import q from "./Profile.module.css";
-import Posts from "./Posts/Posts";
+import Posts from "../Posts/Posts";
 import Status from "./Status";
-import Loader from "../Assets/Loader";
+import Loader from "../../Assets/Loader";
 import {Form} from "./AddPostForm"
-import backgr from "../../additions/backgr.jpg"
+import backgr from "../../../additions/backgr.jpg"
 import axios from "axios";
 
 
@@ -32,29 +32,29 @@ if (!props.profile){
   return(<Loader />)}
     return (
       
-      <div className="main">
+      <div className={q.Content} >
         <div>
           <img
-            className={q.abobacar}
+            className={q.bgp}
             src={backgr}
           />
         </div>
         <div className={q.info}>
-          <h2>Я рижа mавпа</h2>
-          <div>  <img src={props.profile.photos.large} />  </div>
-          <div  > <input className={q.uploadFile} type="file" id ="photo"/>
+          <span className={q.UserName}>{props.profile.fullName}</span>
+          
+          <div> <img src={props.profile.photos.large} />  </div>
+          <div> <input className={q.uploadFile} type="file" id ="photo"/>
           <button className={q.uploadFile}
-          //  onClick={uploadPhoto()}
-            >слати</button></div>
-          <h4>
+            >confirm</button></div>
+          <div>
              <Status {...props}/>
-          </h4>
-          <Form AddPost={props.AddPost}/>
+          </div>
+          </div>
+         
           <div className={q.WordPosts}>POSTS</div>
-        </div>
-        <div>
+          <Form AddPost={props.AddPost}/>
           <Posts  postsinfo={props.postsinfo} />
-        </div>
+        
       </div>
       
     );

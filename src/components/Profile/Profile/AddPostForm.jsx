@@ -1,5 +1,5 @@
 import React from "react";
-import q from "../Assets/Form.module.css";
+import q from "../../Assets/Form.module.css";
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
 
@@ -70,7 +70,7 @@ export const Form = (props) => {
                 {errors.text && errors.text.type === "maxLength" && <span className={q.span} role="alert">Max length exceeded</span>}
 
                 <p>
-                    <input className={q.button} type="submit" value="створити"></input>
+                    <input className={q.button} type="submit" value="СТВОРИТИ"></input>
                 </p>
 
             </form>

@@ -2,11 +2,23 @@
     font-size: 200%;
     background-color: bisque;
     color: rgb(28, 131, 131);
-
+    padding-top: 10px;
 }
 .loginBlock{
+    margin: auto;
     float:right;
 }
 .loginBlock a{
 color: rgb(211, 54, 94);
+}
+.logout button{
+margin: auto;
+margin-right: 10px;
+background-color: aqua;
+}
+
+.logout {
+    margin-right: 3px;
+display: flex;
+place-content: center;
 }

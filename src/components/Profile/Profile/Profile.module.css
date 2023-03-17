@@ -1,0 +1,30 @@
+
+.bgp{
+  width: 100%;
+  height: 300px;
+}
+.info{
+  background-color: rgb(252, 229, 198);
+  font-size: 1vw;
+  border-radius: 5px;
+  
+}
+.WordPosts{
+  padding-top: 5px ;
+  padding-bottom: 5px ;
+  text-align: center;
+  background-color:#27941f;
+  border-radius: 5px;
+}
+.uploadFile{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.UserName{
+  font-size: 3vw;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  font-weight: bolder;
+  color: rgb(10, 49, 70);
+}

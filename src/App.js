@@ -3,7 +3,7 @@ import HeadContainer from "./components/Head/HeadContainer";
 import SideBar from "./components/SideBar/SideBar";
 import Settings from "./components/Profile/Settings/Settings";
 import ChatsContainer from "./components/Profile/chats/ChatsContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
+import ProfileContainer from "./components/Profile/Profile/ProfileContainer";
 import UsersContainer from "./components/Profile/Users/UsersContainer"
 import LoginContainer from "./components/Head/Login/LoginContainer"
 import Loader from "./components/Assets/Loader";
