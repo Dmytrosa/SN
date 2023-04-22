@@ -1,7 +1,7 @@
 
 import React from "react";
 import q from "./../Users.module.css";
-import userPhoto from "../../../../additions/UsersAva.jpg";
+import userPhoto from "../../../../additions/UsersAva.png";
 import Reloader from "../../../Assets/Loader"
 import { NavLink } from "react-router-dom";
 
@@ -17,7 +17,7 @@ return(
 
     {props.isFetching? <Reloader/> :<>
     <div>
-        {pages.map(p =>  { return  <span className={props.currentPage === p && q.selectedPage}
+        {pages.map(p =>  { return  <span key={p} className={props.currentPage === p && q.selectedPage}
             onClick={ () =>  {props.onPageChanged(p) } } > _{p}_</span>
         })}
       </div>

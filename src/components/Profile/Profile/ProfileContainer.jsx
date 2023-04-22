@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Profile from "./Profile";
 import {
   PostAdding,
+  DeletePost,
   RewriteNewPostTitle,
   RewriteNewPostText,
   ViewUserProfile,
@@ -54,6 +55,9 @@ let mapDispatchToProps = (dispatch) => {
   return {
     AddPost: (header, text) => {
       dispatch(PostAdding(header, text));
+    },
+    DeletePost: (id) => {
+      dispatch(DeletePost(id));
     },
     ChangeNewPostTitle: (text) => {
       dispatch(RewriteNewPostTitle(text));

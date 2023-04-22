@@ -1,5 +1,6 @@
 import { ProfileApi } from "../api/api";
 const POSTADDING = () => 'POST-ADDING';
+const POSTDELITING = () => 'POST-DELITING';
 const REWRITENEWPOSTTITLE = () => 'REWRITE-NEW-POST-TITLE';
 const REWRITENEWPOSTTEXT = () => 'REWRITE-NEW-POST-TEXT';
 const GETDATA = () => 'GET-DATA';
@@ -8,7 +9,11 @@ const GETSTATUS = () => 'GET-STATUS';
 
 let initialState = {
   postsinfo: [
-    { id: 0, text: "раша параша", title: "Новини", date: "11:01:1011" },
+    { id: 0, text: " параша", title: "Новини", date: "11:01:1011" },
+    { id: 3, text: "раша параша", title: "Новини", date: "11:01:1011" },
+    { id: 2, text: "раша ", title: "Новини", date: "11:01:1011" },
+    { id: 4, text: "", title: "Новини", date: "11:01:1011" },
+
   ],
   profile: null,
   status: null,
@@ -19,6 +24,7 @@ const profileReducer = (state = initialState, action) => {
 
 
   switch (action.type) {
+    
     case POSTADDING:
       {
         let postadd = {
@@ -30,6 +36,13 @@ const profileReducer = (state = initialState, action) => {
         return {
           ...state,
           postsinfo: [...state.postsinfo, postadd],
+        };
+      }
+    case POSTDELITING:
+      {debugger
+        return {
+          ...state,
+          postsinfo: state.postsinfo.filter(id => id.id != action.id),
         };
       }
     case REWRITENEWPOSTTITLE:
@@ -69,6 +82,9 @@ const profileReducer = (state = initialState, action) => {
 
 export const PostAdding =
   (header, text) => ({ type: POSTADDING, header, text });
+
+export const DeletePost =
+  (id) => ({ type: POSTDELITING, id}); 
 
 export const RewriteNewPostTitle =
   (postaddingtitle) => ({ type: REWRITENEWPOSTTITLE, postaddingtitle });

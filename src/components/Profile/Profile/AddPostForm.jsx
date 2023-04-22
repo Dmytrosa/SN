@@ -9,16 +9,7 @@ const defaultValues = {
 }
 
 export const Form = (props) => {
-
-
-
-
-
     return (HookForm())
-
-
-
-
     function HookForm() {
         const { register, handleSubmit, reset, formState: { errors }, formState } = useForm({
             defaultValues,
@@ -72,12 +63,9 @@ export const Form = (props) => {
                 <p>
                     <input className={q.button} type="submit" value="СТВОРИТИ"></input>
                 </p>
-
             </form>
             </div>
-
         )
-      
     }
 }
 

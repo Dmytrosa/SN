@@ -11,6 +11,17 @@
     margin-left: 13px;
     border:0px;
   }
-  .post.text{
-
+ 
+  .dateDelete{
+    display: flex;
+    justify-content: space-between;
+    flex:1;
+  }
+  .delete{
+  display: flex;
+  width: 10%;
+  height: 7%;
+  background-color: rgb(112, 19, 19);
+  justify-content: center;
+  align-items: center;
   }

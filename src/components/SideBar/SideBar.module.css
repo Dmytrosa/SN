@@ -10,7 +10,8 @@ grid-template-columns: 120px 120px;
 grid-gap: 8px;
 }
 
-.active{color:rgb(199, 57, 35);
+.active{
+    color:rgb(199, 57, 35);
     text-decoration: none;
     border-radius: 30%;
 }
@@ -26,7 +27,7 @@ grid-gap: 8px;
 
 .Pro{
     grid-area: P;
-    background-color: beige;
+    background-color: rgb(255, 255, 187);
     
 }
 .Set{
@@ -41,3 +42,125 @@ grid-gap: 8px;
     grid-area: N;
     background-color: coral;
 }
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, 150px);
+    grid-gap: 10px;
+  }
+  
+  .grid-item {
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .activegriditem1
+{
+    text-decoration: none;
+
+  color:rgb(248, 248, 248);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f25022;
+}
+.activegriditem2
+{
+  text-decoration: none;
+  color:rgb(248, 248, 248);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7fba00;
+}
+.activegriditem3
+{
+  text-decoration: none;
+  color:rgb(248, 248, 248);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00a4ef;
+}
+.activegriditem4
+{
+  text-decoration: none;
+  color:rgb(248, 248, 248);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffb900;
+}
+
+.griditem {
+    
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f25022;
+
+  }
+
+  .griditemsquare1 {
+    color: rgb(28, 131, 131);
+
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #ffa890;
+}
+.griditemsquare2 {
+    color: rgb(28, 131, 131);
+
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #deff97;
+}
+.griditemsquare3 {
+    color: rgb(28, 131, 131);
+
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #8ddbff;
+  }
+  .griditemsquare4 {
+    color: rgb(28, 131, 131);
+
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #ffd560;
+  }
+
+/* .activegriditemsquare
+  {
+    color:rgb(248, 248, 248);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color:rgb(199, 57, 35);
+    text-decoration: none;
+  } */
+  

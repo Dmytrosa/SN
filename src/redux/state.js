@@ -50,13 +50,8 @@ let store = {
     return this._data;
   }
   this.RenderTree(this._data);
-  
-
   },
 };
 
-
-
-
 window.data = store._data;
-export default store
+// export default store

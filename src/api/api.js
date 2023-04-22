@@ -11,7 +11,6 @@ const instance = axios.create({
 export const GetUsers = (currentPage, pageSize) => {
     return (
         instance.get(`users?page=${currentPage}&count=${pageSize}`)
-
     )
         .then(response => response.data)
 }
@@ -33,7 +32,7 @@ export const Follow = (id) => {
 }
 
 export const ProfileApi = {
-    SetStatus(status) {
+     SetStatus(status) {
         return (
             instance.put(`profile/status/`, { status })
         )

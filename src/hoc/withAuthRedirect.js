@@ -4,9 +4,8 @@ import { Navigate } from "react-router-dom";
 
 
 
-let mapStateToPropsForRedirect =(state) => ({
-    isAuth: state.auth.isAuth
-});
+let mapStateToPropsForRedirect = state => ({isAuth: state.auth.isAuth});
+
 export const withAuthRedirect =(Component) => {
     class RedirectComponent extends PureComponent{
         
@@ -15,7 +14,6 @@ export const withAuthRedirect =(Component) => {
             return <Component {...this.props}/>
         }
     }
-let ConnectAuthRedirectComponet = connect (mapStateToPropsForRedirect)(RedirectComponent)
-return ConnectAuthRedirectComponet
+    return connect (mapStateToPropsForRedirect)(RedirectComponent)
 } 
 

@@ -4,19 +4,19 @@ import Post from "./Post/Post";
 
 window.props =[]
 
-const PostArea = (props) => {
-  let postsrender = props.postsinfo.map(p => {
-    return <Post id={p.id} text={p.text} title={p.title} date={p.date} />;
-  }); 
+
+
+const PostArea = React.memo((props) => {
   return (
-   
-      <div className={q.post}>{postsrender}</div>
+      <div className={q.post}>{props.postsinfo.map(p => {
+        return <Post id={p.id} text={p.text} title={p.title} date={p.date} DeletePost={props.deletePost} />;
+      })}</div>
   );
-};
+});
 
 export default
- React.memo(
+//  React.memo(
   PostArea
-  , (props, nextProps) => {
-  return props !== nextProps
-});
+//   , (props, nextProps) => {
+//   return props !== nextProps
+// });

@@ -1,44 +1,36 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import q from "./SideBar.module.css";
+import "../Assets/Loader copy.css"
 
 const SideBar = () => {
   return (
     <nav className="bar">
-      <div className={q.sign}>
-        <div className={q.Pro}>
+      <div class="gridcontainer">
           <NavLink
             to="/Profile"
-            className={(navData) => (navData.isActive ? q.active : q.sign)}
+            className ={(navData)=>(navData.isActive ? q.activegriditem1 : q.griditemsquare1)}
           >
-            <div className={q.center}>Profile</div>
+            Profile
           </NavLink>
-        </div>
-        <div className={q.Cha}>
           <NavLink
             to="/Chats"
-            className={(navData) => (navData.isActive ? q.active : q.sign)}
+            className ={(navData)=>(navData.isActive ? q.activegriditem2 : q.griditemsquare2)}
           >
-            <div className={q.center}>Chats</div>
+           Chats
           </NavLink>
-        </div>
-        <div className={q.NewB}>
           <NavLink
             to="/Users"
-            className={(navData) => (navData.isActive ? q.active : q.sign)}
+            className ={(navData)=>(navData.isActive ? q.activegriditem3 : q.griditemsquare3)}
           >
             <div className={q.center}>New Boys</div>
           </NavLink>
-        </div>
-
-        <div className={q.Set}>
           <NavLink
             to="/Settings"
-            className={(navData) => (navData.isActive ? q.active : q.sign)}
+            className ={(navData)=>(navData.isActive ? q.activegriditem4 : q.griditemsquare4)}
           >
             <div className={q.center}>Settings</div>
           </NavLink>
-        </div>
       </div>
     </nav>
   );

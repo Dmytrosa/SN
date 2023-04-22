@@ -7,6 +7,8 @@ import ProfileContainer from "./components/Profile/Profile/ProfileContainer";
 import UsersContainer from "./components/Profile/Users/UsersContainer"
 import LoginContainer from "./components/Head/Login/LoginContainer"
 import Loader from "./components/Assets/Loader";
+import Micro from "./components/Assets/Loader copy";
+
 import { Route, Routes } from "react-router-dom";
 // import { Component } from "react";
 import { connect } from "react-redux";
@@ -51,6 +53,10 @@ class App extends PureComponent {
             <Route
               path="/Loader"
               element={<Loader />}
+            />
+            <Route
+              path="/Micro"
+              element={<Micro />}
             />
             <Route
               path="/Login"
