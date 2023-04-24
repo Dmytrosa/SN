@@ -21,6 +21,7 @@ let mapStateToProps = (state) => {
     pageSize: state.userspage.pageSize,
     totalUsersCount: state.userspage.totalUsersCount,
     currentPage: state.userspage.currentPage,
+    pagePortion: state.userspage.pagePortion,
     isFetching: state.userspage.isFetching,
     isFetchingFollowing: state.userspage.isFetchingFollowing,
   }
