@@ -9,7 +9,7 @@ window.props =[]
 const PostArea = React.memo((props) => {
   return (
       <div className={q.post}>{props.postsinfo.map(p => {
-        return <Post id={p.id} text={p.text} title={p.title} date={p.date} DeletePost={props.deletePost} />;
+        return <Post key ={p.id} id={p.id} text={p.text} title={p.title} date={p.date} DeletePost={props.deletePost} />;
       })}</div>
   );
 });

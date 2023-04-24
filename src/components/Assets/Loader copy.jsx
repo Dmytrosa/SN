@@ -17,11 +17,11 @@ const changeTextColor2 = function (e) {
 
 
 <body>
-  <div class="gridcontainer">
-    <div class="activegriditem square1" onClick={changeTextColor} onDoubleClick={changeTextColor2}> sff</div>
-    <div class="griditem square2" onClick= {changeTextColor} onDoubleClick={changeTextColor2}>sadfa</div>
-    <div class="griditem square3" onClick= {changeTextColor} onDoubleClick={changeTextColor2}>asfa</div>
-    <div class="griditem square4" onClick= {changeTextColor} onDoubleClick={changeTextColor2}>asf</div>
+  <div className="gridcontainer">
+    <div className="activegriditem square1" onClick={changeTextColor} onDoubleClick={changeTextColor2}> sff</div>
+    <div className="griditem square2" onClick= {changeTextColor} onDoubleClick={changeTextColor2}>sadfa</div>
+    <div className="griditem square3" onClick= {changeTextColor} onDoubleClick={changeTextColor2}>asfa</div>
+    <div className="griditem square4" onClick= {changeTextColor} onDoubleClick={changeTextColor2}>asf</div>
   </div>
 </body>
 

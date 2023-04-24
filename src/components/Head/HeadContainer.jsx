@@ -6,7 +6,7 @@ import { LogoutThunk } from "../../redux/authReducer";
 
 
 
-class HeadContainer extends PureComponent {
+class HeadContainer extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
         debugger
         return this.props != nextProps || nextState != this.state

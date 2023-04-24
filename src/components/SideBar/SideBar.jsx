@@ -6,7 +6,7 @@ import "../Assets/Loader copy.css"
 const SideBar = () => {
   return (
     <nav className="bar">
-      <div class="gridcontainer">
+      <div className="gridcontainer">
           <NavLink
             to="/Profile"
             className ={(navData)=>(navData.isActive ? q.activegriditem1 : q.griditemsquare1)}

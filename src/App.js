@@ -1,19 +1,21 @@
 import "./App.css";
 import HeadContainer from "./components/Head/HeadContainer";
 import SideBar from "./components/SideBar/SideBar";
-import Settings from "./components/Profile/Settings/Settings";
+// import Settings from "./components/Profile/Settings/Settings";
 import ChatsContainer from "./components/Profile/chats/ChatsContainer";
 import ProfileContainer from "./components/Profile/Profile/ProfileContainer";
 import UsersContainer from "./components/Profile/Users/UsersContainer"
 import LoginContainer from "./components/Head/Login/LoginContainer"
 import Loader from "./components/Assets/Loader";
 import Micro from "./components/Assets/Loader copy";
-
+// import { withLoaderSuspense } from "./hoc/withLoaderSuspens";
 import { Route, Routes } from "react-router-dom";
 // import { Component } from "react";
 import { connect } from "react-redux";
 import { InitApp } from "./redux/appReducer";
-import { PureComponent } from "react";
+import React, { PureComponent } from "react";
+
+const Settings = React.lazy(() => import('./components/Profile/Settings/Settings'))
 
 class App extends PureComponent {
 
@@ -24,15 +26,28 @@ class App extends PureComponent {
 
   }
   render() {
-   
-   if ( !this.props.isInit){
-    return <Loader/>
-   }
+
+    if (!this.props.isInit) {
+      return <Loader />
+    }
     return (
-     
       <div className="App-w">
         <HeadContainer />
         <div className="App-w-content">
+          
+          <React.Suspense fallback={<Loader />}>
+            <Routes>
+              <Route
+                path="/Settings"
+                element={<Settings />}
+              />
+              <Route
+                path="/Login"
+                element={<LoginContainer />}
+              />
+            </Routes>
+          </React.Suspense>
+
           <Routes>
             <Route
               path="/Chats"
@@ -47,20 +62,12 @@ class App extends PureComponent {
               element={<UsersContainer />}
             />
             <Route
-              path="/Settings"
-              element={<Settings />}
-            />
-            <Route
               path="/Loader"
               element={<Loader />}
             />
             <Route
               path="/Micro"
               element={<Micro />}
-            />
-            <Route
-              path="/Login"
-              element={<LoginContainer />}
             />
           </Routes>
         </div>
@@ -69,9 +76,9 @@ class App extends PureComponent {
     );
   }
 };
-const mapStateToProps =(state) => {
+const mapStateToProps = (state) => {
   return {
-  isInit: state.app.isInit
+    isInit: state.app.isInit
   }
 }
 

@@ -10,10 +10,10 @@ const CLEANISFETCHINGFOLLOWING =()=>"CLEAN_IS_FETCHING_FOLLOWING"
 
 let initialState = {
     usersinfo: [],
-    pageSize: 5,
+    pageSize: 10,
     totalUsersCount: null,
     currentPage:1,
-    pagePortion: 5,
+    pagePortion: 10,
     isFetching : false,
     isFetchingFollowing: [],
 };
