@@ -27,19 +27,27 @@ const Status = React.memo((props) => {
     return (
         <div className={q.body}>
             <div className={q.status}>
-                {
-                    !isFetching &&
-                    <div className={q.st}>
-                        <span className={q.sttext} onDoubleClick={activateFetching} > Статус: {status}</span>
-                    </div>
-                }
-                {
-                    isFetching &&
-                    <div>
-                        <input type="text" autoFocus={true} value={status} onChange={onStatusChangeLogic} />
-                    </div>
-                }
-                <button className={q.resetStatus} type="submit" onClick={deactivateFetching}>Підтвердити</button>
+                {props.state.auth.userId === props.profile.userId
+? 
+                 <div>
+                 {
+                     !isFetching &&
+                     <div className={q.st}>
+                         <span className={q.sttext} onDoubleClick={activateFetching} > Status: {status}</span>
+                     </div>
+                 }
+                 {
+                     isFetching &&
+                     <div>
+                         <input type="text" autoFocus={true} value={status} onChange={onStatusChangeLogic} />
+                     </div>
+                 }
+                 <button className={q.button} type="submit" onClick={deactivateFetching}>Submit</button>
+                 </div>:
+                                          <span className={q.sttext} onDoubleClick={activateFetching} > Status: {status}</span>
+
+                 }
+               
             </div>
         </div>
     );

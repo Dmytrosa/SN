@@ -66,22 +66,32 @@
   
   .button[type="submit"],
   .input[type="submit"] {
-    background: #901313;
-    color: white;
-    border: none;
-    margin-top: 10px;
-    padding: 20px;
-    font-weight: 100;
-    letter-spacing: 10px;
-    width: 100%;
+    
+      padding: 4px 4px;
+      margin: 5px 13px;
+      color: #1a1e19;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      border: 2px solid #343434 ;
+      background-color: #d3d3d3;
+      border-radius: 5px;
+      align-items: center;
+      text-align: center;
+      box-shadow: 7px 7px   teal;
   }
   .status{
 /* margin-left: 20px; */
+margin: 10px 10px;
+padding: 10px 10px;
   }
 
   .button[type="submit"]:hover,
   .input[type="submit"]:hover {
-    background: #27941f;
+    background: #ebebeb;
+    color: #217b15;
+    border-style: dashed  #217b15;
+    transition: 1s;
+    scale: 1.1;
+    box-shadow: 30px -5px 5px rgba(0, 128, 128, 0.452);
   }
   
   .button[type="submit"]:active,

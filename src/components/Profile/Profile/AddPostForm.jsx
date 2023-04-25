@@ -27,10 +27,10 @@ export const Form = (props) => {
                 <label htmlFor="header"
                     className={classNames(q.label, { [q.errorlabel]: errors.header })}>
 
-                    Заголовок:
+                    Header:
                 </label>
                 <input type="text"
-                    placeholder="Назва поста"
+                    placeholder="Name it"
                     className=
                     {classNames
                         (q.input, { [q.errorinput]: errors.header })
@@ -44,10 +44,10 @@ export const Form = (props) => {
                 {errors.header && errors.header.type === "maxLength" && <span className={q.span} role="alert">Max length exceeded</span>}
                 <p></p>
                 <label className={classNames(q.label, { [q.errorlabel]: errors.text })}>
-                    Текст:
+                    Text:
                 </label>
                 <input type="text"
-                    placeholder="Назва поста"
+                    placeholder="Tell about it"
                     className=
                     {classNames
                         (q.input, { [q.errorinput]: errors.text })
@@ -61,7 +61,7 @@ export const Form = (props) => {
                 {errors.text && errors.text.type === "maxLength" && <span className={q.span} role="alert">Max length exceeded</span>}
 
                 <p>
-                    <input className={q.button} type="submit" value="СТВОРИТИ"></input>
+                    <input className={q.button} type="submit" value="SUBMIT"></input>
                 </p>
             </form>
             </div>
