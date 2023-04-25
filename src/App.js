@@ -27,9 +27,9 @@ class App extends PureComponent {
   }
   render() {
 
-    if (!this.props.isInit) {
-      return <Loader />
-    }
+    // if (!this.props.isInit) {
+    //   return <Loader />
+    // }
     return (
       <div className="App-w">
         <HeadContainer />

@@ -5,15 +5,17 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux"
-import { BrowserRouter } from "react-router-dom";
+import {HashRouter, BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
+    {/* <BrowserRouter basename= {process.env.PUBLIC_URL}> */}
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
+    </HashRouter>
   </React.StrictMode>
 );
 
