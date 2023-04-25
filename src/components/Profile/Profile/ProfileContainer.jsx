@@ -8,6 +8,7 @@ import {
   ViewUserProfile,
   GetStatusThunk,
   SetStatusThunk,
+  SetAvaThunk
     }
  from "../../../redux/profileReducer";
 import { connect } from "react-redux";
@@ -21,24 +22,23 @@ import { compose } from "redux";
 import { ProfileApi } from "../../../api/api";
 
  const ProfileContainer= (props)=>  {
-  function DidMount() {
+  function Mount() {
     useEffect(() => {let userId = props.router.params.profileId;
           if (!userId) {
             userId = props.state.auth.userId
           }
         ProfileApi.GetUserRpofile(userId, props.ViewUserProfile)
         props.GetStatusThunk(userId)
-        }, []);
+        }, [props.router.location]);
     return (
       <div>
         <Profile  {...props} />
       </div>
     );
   };
- return DidMount()
+  
+ return Mount()
 };
-
-
 
 let mapStateToProps = (state) => {
 
@@ -47,7 +47,7 @@ let mapStateToProps = (state) => {
     newTextBody: state.profilepage.newposttexttext,
     profile: state.profilepage.profile,
     postsinfo: state.profilepage.postsinfo,
-    status:state.profilepage.status,
+    status: state.profilepage.status,
     state: state,
   }
 }
@@ -73,7 +73,10 @@ let mapDispatchToProps = (dispatch) => {
     },
     SetStatusThunk: (status) =>{
       dispatch(SetStatusThunk(status))
-    }
+    },
+    SetAvaThunk: (ava) =>{
+      dispatch(SetAvaThunk(ava))
+    },
   }
 }
 

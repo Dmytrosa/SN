@@ -6,7 +6,7 @@ const REWRITENEWPOSTTEXT = () => 'REWRITE-NEW-POST-TEXT';
 const GETDATA = () => 'GET-DATA';
 const VIEWUSERPROFILE = () => 'VIEW-USER-PROFILE';
 const GETSTATUS = () => 'GET-STATUS';
-
+const SAVEPHOTOSUCCESS =()=>'SAVE-PHOTO-SUCCESS';
 let initialState = {
   postsinfo: [
     { id: 0, text: " параша", title: "Новини", date: "11:01:1011" },
@@ -26,6 +26,7 @@ const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     
     case POSTADDING:
+      debugger
       {
         let postadd = {
           id: 1,
@@ -75,6 +76,16 @@ const profileReducer = (state = initialState, action) => {
           status: action.status
         };
       }
+      debugger
+      case SAVEPHOTOSUCCESS: 
+        {
+          debugger
+          return {
+            
+            ...state,
+           profile:{...state.profile, photos: action.photos}
+          };
+        }
     default:
       return state;
   }
@@ -92,7 +103,6 @@ export const RewriteNewPostTitle =
 export const RewriteNewPostText =
   (postaddingtext) => ({ type: REWRITENEWPOSTTEXT, postaddingtext });
 
-
 export const ViewUserProfile =
   (profile) => ({ type: VIEWUSERPROFILE, profile });
 
@@ -101,6 +111,9 @@ export const GetData =
 
 export const ApdateStatus =
   (status) => ({ type: GETSTATUS, status });
+
+  export const savePhotoSuccess =
+  (photos) => ({ type: SAVEPHOTOSUCCESS, photos });
 
 
 export const GetStatusThunk = (id) => {
@@ -115,6 +128,16 @@ export const SetStatusThunk = (status) => {
     let data = await ProfileApi.SetStatus(status)
     if (data.resultCode === 0) {
       dispatch(ApdateStatus(status));
+    }
+  }
+}
+
+export const SetAvaThunk = (ava) => {
+  return async (dispatch) => {
+    let data = await ProfileApi.savePhoto(ava)
+    debugger
+    if (data.resultCode === 0) {
+      dispatch(savePhotoSuccess(data.data.photos));
     }
   }
 }

@@ -9,6 +9,14 @@ import monkey from "../../../additions/UsersAva.png"
 
 
 const Profile = (props) => {
+
+
+const onAvaSelected =(e)=>{
+if (e.target.files.length)
+{props.SetAvaThunk
+  (e.target.files[0])}
+}
+
   if (!props.profile) {
     return (<Loader />)
   }
@@ -17,17 +25,18 @@ const Profile = (props) => {
     <div className={q.Content} >
       <div>
         <img
-          className={q.bgp}
+          className={q.bgp} 
           src={backgr}
         />
       </div>
       <div className={q.info}>
         <span className={q.UserName}>{props.profile.fullName}</span>
-        <div> <img src={props.profile.photos.large? props.profile.photos.large :  monkey } className = {q.ava}></img>   </div>
+        <div> <img src={props.profile.photos.large? props.profile.photos.large :  monkey } className = {q.ava}></img></div>
           {!(props.state.auth.userId === props.profile.userId) ?
             <></> :
-              <><input className={q.uploadFile} type="file" id="photo" /> 
-              <button className={q.uploadFile}>confirm</button></>}
+              <><input className={q.uploadFile} type="file" onChange={onAvaSelected} id="photo" /> 
+              {/* <button className={q.uploadFile} >confirm</button> */}
+              </>}
         <div>
           <Status {...props} />
         </div>
