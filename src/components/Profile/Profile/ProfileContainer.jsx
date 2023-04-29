@@ -8,7 +8,9 @@ import {
   ViewUserProfile,
   GetStatusThunk,
   SetStatusThunk,
-  SetAvaThunk
+  SetAvaThunk,
+  ApdatePersonalInfo,
+  ApdateContactsInfo
     }
  from "../../../redux/profileReducer";
 import { connect } from "react-redux";
@@ -41,7 +43,6 @@ import { ProfileApi } from "../../../api/api";
 };
 
 let mapStateToProps = (state) => {
-
   return {
     newTitleBody: state.profilepage.newposttitletext,
     newTextBody: state.profilepage.newposttexttext,
@@ -77,7 +78,13 @@ let mapDispatchToProps = (dispatch) => {
     SetAvaThunk: (ava) =>{
       dispatch(SetAvaThunk(ava))
     },
-  }
+    ApdatePersonalInfo: (FullName, LookingForAJob, StackDescription, AditionalInfo) =>{
+      dispatch(ApdatePersonalInfo(FullName, LookingForAJob, StackDescription, AditionalInfo))
+    },
+    ApdateContactsInfo: (GitHub, Instagram, Twitter, Website) =>{
+      dispatch(ApdateContactsInfo(GitHub, Instagram, Twitter, Website))
+    }
+  }       
 }
 
 function withRouter(Component) {

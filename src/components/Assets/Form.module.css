@@ -5,7 +5,7 @@
   .st{
     padding: 2px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
   .sttext{
     color: antiquewhite;
@@ -19,7 +19,7 @@
     background: #901313;
     color: white;
     border: none;
-    padding: 20px;
+    padding: 10px;
     font-weight: 10;
     letter-spacing: 3px;
     /* width: 10%; */
@@ -36,11 +36,21 @@
     font-weight: 100;
     color: white;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     border-bottom: 1px solid rgb(79, 98, 148);
+    
   }
   
-  
+  .checkBoxWithLabel{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .inputCheck{ 
+    width: 20px;
+    height: 20px;
+    
+  }
   
   .input {
     display: block;
@@ -48,7 +58,7 @@
     width: 90%;
     border-radius: 4px;
     border: 1px solid white;
-    padding: 10px 15px;
+    padding: 5px 15px;
     margin-bottom: 10px;
     margin-left: 10px;
   }
@@ -58,14 +68,13 @@
     text-align: left;
     display: block;
     margin-bottom: 13px;
-    margin-top: 23px;
+    margin-top: 10px;
     color: white;
     font-weight: 200;
     margin-left: 5px;
   }
   
-  .button[type="submit"],
-  .input[type="submit"] {
+  .button{
     
       padding: 4px 4px;
       margin: 5px 13px;
@@ -84,7 +93,7 @@ margin: 10px 10px;
 padding: 10px 10px;
   }
 
-  .button[type="submit"]:hover,
+  .button:hover,
   .input[type="submit"]:hover {
     background: #ebebeb;
     color: #217b15;

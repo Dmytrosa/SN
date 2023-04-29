@@ -7,11 +7,14 @@ import { Form } from "./AddPostForm"
 import backgr from "../../../additions/backgr.jpg"
 import monkey from "../../../additions/UsersAva.png"
 import AvaLoader from "./AvaLoader";
-
+import { ContactsInfo } from "./ContactsForm";
+import { useState } from "react";
+import { PersonalInfo } from "./PersonalInfoForm copy";
 
 const Profile = (props) => {
-
-
+const [isPersonalInfoActive, setIsPersonalInfoActive] = useState(false)
+const [isContactsActive, setIsContactsActive] = useState(false)
+debugger
   if (!props.profile) {
     return (<Loader />)
   }
@@ -20,38 +23,72 @@ const Profile = (props) => {
     <div className={q.Content} >
       <div>
         <img
-          className={q.bgp} 
+          className={q.bgp}
           src={backgr}
         />
       </div>
       <div className={q.info}>
-        <span className={q.UserName}>{props.profile.fullName}</span>
-        <div> <img src={props.profile.photos.large? props.profile.photos.large :  monkey } className = {q.ava}></img></div>
-          {!props.state.auth.userId === props.profile.userId
- ?
-            <></> :
-             <AvaLoader SetAvaThunk={props.SetAvaThunk}/>}
+        <div className={q.UserName}>{props.profile.fullName}</div>
+        <div className={q.userInfo}>
+          <img src={props.profile.photos.large ? props.profile.photos.large : monkey} className={q.ava}></img>
+         
+         {isPersonalInfoActive
+              ? 
+          <PersonalInfo {...props} setIsPersonalInfoActive={setIsPersonalInfoActive}/>
+              :
+          <div >
+             {props.state.auth.userId === props.profile.userId
+          ?
+         <button className={q.button} onClick={()=>{setIsPersonalInfoActive(true)}} >Edit</button>
+          : <></>}
+            <ul> Personal info:
+              <li>Looking fot a job: {props.profile.lookingForAJob? <>yaya</>: <>nono</> }</li>
+              <li>Stack description: {props.profile.lookingForAJobDescription || <>maybe no maybe yes</> }</li>
+              <li>Aditional info: {props.profile.aboutMe || <>maybe no maybe yes</> }</li>
+            </ul>
+          </div>
+}
+
+
+{isContactsActive
+              ? 
+          <ContactsInfo {...props} setIsContactsActive={setIsContactsActive}/>
+              :
+          <div >
+             {props.state.auth.userId === props.profile.userId
+          ?
+         <button className={q.button} onClick={()=>{setIsContactsActive(true)}} >Edit</button>
+          : <></>}
+            <ul>Contacts:
+              <li>GitHub: <a target="_blank" href={props.profile.contacts.github}>{props.profile.contacts.github}</a></li>
+              <li>Instagram: <a target="_blank" href={props.profile.contacts.instagram}>{props.profile.contacts.instagram}</a> </li>
+              <li>Twitter: <a  target="_blank" href={props.profile.contacts.twitter}>{props.profile.contacts.twitter}</a> </li>
+              <li>Website: <a target="_blank" href={props.profile.contacts.website}>{props.profile.contacts.website}</a></li>
+            </ul>
+            </div>
+}
+          
+        </div>
+        {props.state.auth.userId === props.profile.userId
+          ?
+          <AvaLoader SetAvaThunk={props.SetAvaThunk} />
+          : <></>}
         <div>
-          <Status {...props} 
+          <Status {...props}
           // isAuthor={isAuthor}
-           />
+          />
         </div>
       </div>
-      {!props.state.auth.userId === props.profile.userId
- ?
-            <></> :
-              <><div className={q.WordPosts}>POSTS</div>
-              <Form AddPost={props.AddPost} />
-              <Posts postsinfo={ props.postsinfo} deletePost={props.DeletePost} /></>}
+      {props.state.auth.userId === props.profile.userId
+        ?
+        <><div className={q.WordPosts}>POSTS</div>
+          <Form AddPost={props.AddPost} />
+          <Posts postsinfo={props.postsinfo} deletePost={props.DeletePost} /></>
+        : <></>}
     </div>
 
   );
 
 }
-export default
-  // React.memo(
-  Profile
-  //   , (props, nextProps) => {
-  //   return props !== nextProps
-  // },);
+export default Profile
 

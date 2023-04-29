@@ -21,6 +21,13 @@ flex-direction: column;
 max-width: 230px;
 }
 
+.userInfo{
+  margin-left: 5px;
+  display: inline-flex;
+  color: #1a1e19;
+  justify-content: left;
+}
+
 .button:hover {
   background: #ebebeb;
   color: #217b15;

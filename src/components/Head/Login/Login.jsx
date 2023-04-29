@@ -32,6 +32,7 @@ const response =  await instance.post(`auth/login`, {email, password, remember})
   if (response.data.messages.length != 0) {
     setResult(result)
   } else {
+    debugger
     await props.Login_(data.email, data.password, data.remember)
     reset();
   }

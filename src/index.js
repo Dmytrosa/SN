@@ -9,13 +9,13 @@ import {HashRouter, BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <HashRouter> */}
-    <BrowserRouter basename= {process.env.PUBLIC_URL}>
+    <HashRouter>
+    {/* <BrowserRouter basename= {process.env.PUBLIC_URL}> */}
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
-    {/* </HashRouter> */}
+    {/* </BrowserRouter> */}
+    </HashRouter>
   </React.StrictMode>
 );
 

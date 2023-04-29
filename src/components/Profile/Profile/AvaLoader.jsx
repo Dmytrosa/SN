@@ -8,11 +8,10 @@ const AvaLoader = (props) => {
                 (e.target.files[0])
         }
     }
-    debugger
     return (
 
         <div className={q.AvaLoader}>
-            <label for="a" className={q.button}>Change avatar photo</label>  
+            <label htmlFor="a" className={q.button}>Change avatar photo</label>  
             <input id="a" className={q.uploadFile} type="file" onChange={onAvaSelected} />
         </div>
     )

@@ -7,12 +7,15 @@ const GETDATA = () => 'GET-DATA';
 const VIEWUSERPROFILE = () => 'VIEW-USER-PROFILE';
 const GETSTATUS = () => 'GET-STATUS';
 const SAVEPHOTOSUCCESS =()=>'SAVE-PHOTO-SUCCESS';
+const APDATEPERSONALINFO =()=>'APDATE-PERSONAL-INFO';
+const APDATECONTACTSINFO =()=>'APDATE-CONTACTS-INFO';
+let now = new Date().toString()
 let initialState = {
   postsinfo: [
-    { id: 0, text: " параша", title: "Новини", date: "11:01:1011" },
-    { id: 3, text: "раша параша", title: "Новини", date: "11:01:1011" },
-    { id: 2, text: "раша ", title: "Новини", date: "11:01:1011" },
-    { id: 4, text: "", title: "Новини", date: "11:01:1011" },
+    { id: 0, text: " параша", title: "Раша Параша", date: "11:01:1011" },
+    { id: 3, text: "раша параша", title: "Раша Параша", date: "11:01:1011" },
+    { id: 2, text: "раша ", title: "Раша Параша", date: "11:01:1011" },
+    { id: 4, text: "", title: "Раша Параша", date: "11:01:1011" },
 
   ],
   profile: null,
@@ -26,13 +29,12 @@ const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     
     case POSTADDING:
-      debugger
       {
         let postadd = {
           id: 1,
           text: action.text,
           title: action.header,
-          date: "123",
+          date: now ,
         };
         return {
           ...state,
@@ -40,7 +42,7 @@ const profileReducer = (state = initialState, action) => {
         };
       }
     case POSTDELITING:
-      {debugger
+      {
         return {
           ...state,
           postsinfo: state.postsinfo.filter(id => id.id != action.id),
@@ -76,15 +78,32 @@ const profileReducer = (state = initialState, action) => {
           status: action.status
         };
       }
-      debugger
       case SAVEPHOTOSUCCESS: 
         {
-          debugger
           return {
             
             ...state,
            profile:{...state.profile, photos: action.photos}
           };
+        }
+        case APDATEPERSONALINFO: 
+        {
+          return {
+            ...state,
+           profile:{...state.profile, aboutMe: action.AditionalInfo,
+             fullName: action.FullName, lookingForAJob: action.LookingForAJob,
+              lookingForAJobDescripton: action.StackDescription},
+          };    
+        }
+        case APDATECONTACTSINFO: 
+        {
+          debugger
+          return {
+            ...state,
+           profile:{...state.profile, contacts:{...state.profile.contacts, github: action.GitHub,
+            instagram: action.Instagram, twitter: action.Twitter,
+            website: action.Website}},
+          }; 
         }
     default:
       return state;
@@ -112,8 +131,16 @@ export const GetData =
 export const ApdateStatus =
   (status) => ({ type: GETSTATUS, status });
 
-  export const savePhotoSuccess =
+export const savePhotoSuccess =
   (photos) => ({ type: SAVEPHOTOSUCCESS, photos });
+
+export const ApdatePersonalInfo =
+  (FullName, LookingForAJob, StackDescription, AditionalInfo) => 
+  ({ type: APDATEPERSONALINFO, FullName , LookingForAJob, StackDescription, AditionalInfo});
+  
+export const ApdateContactsInfo =
+  (GitHub, Instagram, Twitter, Website) => 
+  ({ type: APDATECONTACTSINFO, GitHub , Instagram, Twitter, Website});
 
 
 export const GetStatusThunk = (id) => {
@@ -135,7 +162,6 @@ export const SetStatusThunk = (status) => {
 export const SetAvaThunk = (ava) => {
   return async (dispatch) => {
     let data = await ProfileApi.savePhoto(ava)
-    debugger
     if (data.resultCode === 0) {
       dispatch(savePhotoSuccess(data.data.photos));
     }
