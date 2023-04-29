@@ -9,7 +9,6 @@ const instance = axios.create({
     headers: { "API-KEY": "8604cc03-3d58-4a45-8602-e011234bfbbf" }
 })
 
-
 export const PersonalInfo = (props) => {
   const [resultat, setResult] = useState(null);
   const [aboutMe, setAboutMe] = useState(props.profile.aboutMe);
@@ -17,6 +16,7 @@ export const PersonalInfo = (props) => {
   const [lookingForAJobDescription, setLookingForAJobDescription] = 
   useState(props.profile.lookingForAJobDescription);
   const [fullName, setFullName] = useState(props.profile.fullName);
+
 
   const {
     register,
@@ -45,7 +45,6 @@ export const PersonalInfo = (props) => {
       youtube: null,
       github: GitHub,
       mainLink: null}
-
 
 const response =  await instance.put(`/profile`, { 
   lookingForAJob: LookingForAJob,
@@ -98,10 +97,10 @@ const response =  await instance.put(`/profile`, {
             {...register("LookingForAJob", {
               })}
             type="checkbox"
-            placeholder="LookingForAJob"
             value={lookingForAJob}
-            onChange={(e)=>{setLookingForAJob(e.target.value)}}
+            onChange={(e)=>{setLookingForAJob(e.target._valueTracker.getValue())}}
           />
+          
           </div>
           {errors.LookingForAJob && <p>{errors.LookingForAJob.message2}</p>}
           {errors.LookingForAJob && <span className={q.span} role="alert">{errors.LookingForAJob.message}</span>}
