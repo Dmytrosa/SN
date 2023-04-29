@@ -36,8 +36,6 @@ const response =  await instance.post(`auth/login`, {email, password, remember})
     reset();
   }
   };
-
-
   return (
     <div className={q.body}>
       <form className={q.form} onSubmit={handleSubmit(onSubmit)}>

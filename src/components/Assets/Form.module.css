@@ -58,17 +58,17 @@
     width: 90%;
     border-radius: 4px;
     border: 1px solid white;
-    padding: 5px 15px;
-    margin-bottom: 10px;
     margin-left: 10px;
+    padding: 5px 15px;
+    margin-bottom: 7px;
   }
   
   .label {
     line-height: 2;
     text-align: left;
     display: block;
-    margin-bottom: 13px;
-    margin-top: 10px;
+    margin-bottom: 7px;
+    margin-top: 7px;
     color: white;
     font-weight: 200;
     margin-left: 5px;
