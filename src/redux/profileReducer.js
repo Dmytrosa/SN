@@ -90,14 +90,13 @@ const profileReducer = (state = initialState, action) => {
         {
           return {
             ...state,
-           profile:{...state.profile, aboutMe: action.AditionalInfo,
+           profile:{...state.profile, contacts:{...state.profile.contacts}, aboutMe: action.AditionalInfo,
              fullName: action.FullName, lookingForAJob: action.LookingForAJob,
               lookingForAJobDescripton: action.StackDescription},
           };    
         }
         case APDATECONTACTSINFO: 
         {
-          debugger
           return {
             ...state,
            profile:{...state.profile, contacts:{...state.profile.contacts, github: action.GitHub,

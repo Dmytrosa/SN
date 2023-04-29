@@ -14,7 +14,6 @@ import { PersonalInfo } from "./PersonalInfoForm copy";
 const Profile = (props) => {
 const [isPersonalInfoActive, setIsPersonalInfoActive] = useState(false)
 const [isContactsActive, setIsContactsActive] = useState(false)
-debugger
   if (!props.profile) {
     return (<Loader />)
   }

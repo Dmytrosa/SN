@@ -18,12 +18,6 @@ export const PersonalInfo = (props) => {
   useState(props.profile.lookingForAJobDescription);
   const [fullName, setFullName] = useState(props.profile.fullName);
 
-
-
-  debugger
-
-
-
   const {
     register,
     handleSubmit,
@@ -37,19 +31,34 @@ export const PersonalInfo = (props) => {
     const AditionalInfo =data.AditionalInfo
     const FullName = data.FullName
 
+    const Website=props.profile.contacts.website
+    const Twitter=props.profile.contacts.twitter
+    const Instagram=props.profile.contacts.instagram
+    const GitHub=props.profile.contacts.github
+
+    const contacts ={
+      facebook: null, 
+      website: Website,
+      vk: null,
+      twitter: Twitter,
+      instagram: Instagram,
+      youtube: null,
+      github: GitHub,
+      mainLink: null}
+
+
 const response =  await instance.put(`/profile`, { 
   lookingForAJob: LookingForAJob,
     lookingForAJobDescription: StackDescription,
      aboutMe: AditionalInfo,
-     FullName: FullName
+     FullName: FullName,
+     contacts:contacts
     })
 
   const result =  response.data.messages
-  debugger
   if (response.data.messages.length != 0) {
     setResult(result)
   } else {
-    debugger
     props.setIsPersonalInfoActive(false)
     await props.ApdatePersonalInfo( data.FullName, data.LookingForAJob, data.StackDescription, data.AditionalInfo)
     reset();

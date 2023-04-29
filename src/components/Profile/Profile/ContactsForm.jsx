@@ -56,7 +56,6 @@ const response =  await instance.put(`/profile`, {
     setResult(result)
   } else {
     props.setIsContactsActive(false)
-    debugger
     await props.ApdateContactsInfo(data.GitHub, data.Instagram, data.Twitter, data.Website)
     reset();
   }

@@ -5,11 +5,9 @@ import "./Loader copy.css";
 const Loader = () => {
 
   const changeTextColor = function (e) {
-    debugger
     e.target.className="activegriditem";
 }
 const changeTextColor2 = function (e) {
-  debugger
   e.target.className="activegriditem square1";
 }
   return (
