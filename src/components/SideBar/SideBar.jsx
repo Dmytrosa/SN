@@ -17,7 +17,7 @@ const SideBar = () => {
             to="/Chats"
             className ={(navData)=>(navData.isActive ? q.activegriditem2 : q.griditemsquare2)}
           >
-           Chats
+           Chat
           </NavLink>
           <NavLink
             to="/Users"
