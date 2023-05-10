@@ -75,9 +75,8 @@
   }
   
   .button{
-    
       padding: 4px 4px;
-      margin: 5px 13px;
+      margin: 5px 12px;
       color: #1a1e19;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       border: 2px solid #343434 ;
@@ -85,7 +84,7 @@
       border-radius: 5px;
       align-items: center;
       text-align: center;
-      box-shadow: 7px 7px   teal;
+      box-shadow: 7px 5px   teal;
   }
   .status{
 /* margin-left: 20px; */

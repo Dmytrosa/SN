@@ -14,7 +14,7 @@ const Paginator = (props) => {
 
     useEffect(() => { setPortionNumber(currentPortion) }, [])
     return (
-        <div>
+        <div className={q.paginatorBox}>
             {portionNumber > 1 && <button onClick={() => { setPortionNumber(portionNumber - 1) }}>{`<=`}</button>}
             {pages
                 .filter(p => p < rightPortionPageNumber && p > leftPortionPageNumber)

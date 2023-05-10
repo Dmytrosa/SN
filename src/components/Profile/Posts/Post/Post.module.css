@@ -27,7 +27,7 @@
     border-radius: 5px;
     align-items: center;
     text-align: center;
-    box-shadow: 7px 7px   teal;
+    box-shadow: 7px 5px   teal;
   }
 
   .delete:hover {
