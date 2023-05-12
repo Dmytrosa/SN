@@ -1,5 +1,5 @@
 .sign {
-color: rgb(28, 131, 131);
+color: rgb(10, 49, 70);
 text-decoration: none;
 display: grid;
 grid-template-areas: 
@@ -63,7 +63,7 @@ grid-gap: 8px;
 {
     text-decoration: none;
 
-  color:rgb(248, 248, 248);
+  color: rgb(10, 49, 70);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -73,7 +73,7 @@ grid-gap: 8px;
 .activegriditem2
 {
   text-decoration: none;
-  color:rgb(248, 248, 248);
+  color: rgb(10, 49, 70);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -83,7 +83,7 @@ grid-gap: 8px;
 .activegriditem3
 {
   text-decoration: none;
-  color:rgb(248, 248, 248);
+  color: rgb(10, 49, 70);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -93,7 +93,7 @@ grid-gap: 8px;
 .activegriditem4
 {
   text-decoration: none;
-  color:rgb(248, 248, 248);
+  color: rgb(10, 49, 70);
   border-radius: 50%;
   display: flex;
   justify-content: center;

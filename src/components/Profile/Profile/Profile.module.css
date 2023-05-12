@@ -24,7 +24,7 @@ max-width: 230px;
 .userInfo{
   margin-left: 5px;
   display: inline-flex;
-  color: #1a1e19;
+  color: rgb(10, 49, 70);
   justify-content: left;
 }
 
@@ -67,6 +67,7 @@ max-width: 230px;
   color: rgb(10, 49, 70);
 }
 .ava{
+  border-radius: 50%;
   width: 350px;
   max-height: 350px;
 }

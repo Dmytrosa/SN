@@ -41,7 +41,7 @@ const [isContactsActive, setIsContactsActive] = useState(false)
          <button className={q.button} onClick={()=>{setIsPersonalInfoActive(true)}} >Edit</button>
           : <></>}
             <ul> Personal info:
-              <li>Looking fot a job: {props.profile.lookingForAJob? <>yaya</>: <>nono</> }</li>
+              <li>Looking for a job: {props.profile.lookingForAJob? <>yaya</>: <>nono</> }</li>
               <li>Stack description: {props.profile.lookingForAJobDescription || <>maybe no maybe yes</> }</li>
               <li>Aditional info: {props.profile.aboutMe || <>maybe no maybe yes</> }</li>
             </ul>

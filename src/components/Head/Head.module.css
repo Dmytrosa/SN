@@ -1,8 +1,9 @@
 .Name{
     font-size: 200%;
     background-color: bisque;
-    color: rgb(28, 131, 131);
+    color: rgb(10, 49, 70);
     padding-top: 10px;
+
 }
 .loginBlock{
     margin: auto;
@@ -12,13 +13,14 @@
 color: rgb(211, 54, 94);
 }
 .logout button{
-margin: auto;
 margin-right: 10px;
-background-color: aqua;
+margin-bottom: 100px;
 }
 
 .logout {
-    margin-right: 3px;
+margin-right: 3px;
 display: flex;
-place-content: center;
+position: absolute;
+right: 5px;
+top: 24px;
 }
