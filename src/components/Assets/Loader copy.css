@@ -2,8 +2,8 @@
 .gridcontainer {
   font-size: larger;
   display: grid;
-  grid-template-columns: repeat(2, 150px);
-  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: repeat(50%, 50%);
+  grid-template-rows: repeat(50%, 50%);
   grid-gap: 10px;
 }
 

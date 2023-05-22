@@ -1,15 +1,17 @@
-.sign {
+/* .sign {
 color: rgb(10, 49, 70);
 text-decoration: none;
 display: grid;
 grid-template-areas: 
-"P C"   
-"S N";
-grid-template-rows: 120px 120px;
-grid-template-columns: 120px 120px;
+"P"   
+"S"
+"C"
+"N";
+grid-template-rows: 120px 120px 120px 120px;
+grid-template-columns: 120px ;
 grid-gap: 8px;
-}
-
+} */
+/* 
 .active{
     color:rgb(199, 57, 35);
     text-decoration: none;
@@ -22,10 +24,10 @@ grid-gap: 8px;
 .center{
     padding: 50px 0;
     text-align: center;
-}
+} */
 
 
-.Pro{
+/* .Pro{
     grid-area: P;
     background-color: rgb(255, 255, 187);
     
@@ -41,28 +43,27 @@ grid-gap: 8px;
 .NewB{
     grid-area: N;
     background-color: coral;
-}
+} */
 
 
-
+/* 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 150px);
     grid-template-rows: repeat(2, 150px);
-    grid-gap: 10px;
-  }
+    grid-gap: 100px;
+  } */
   
-  .grid-item {
+  /* .grid-item {
     border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
   .activegriditem1
 {
-    text-decoration: none;
-
+  text-decoration: none;
   color: rgb(10, 49, 70);
   border-radius: 50%;
   display: flex;
@@ -164,3 +165,29 @@ grid-gap: 8px;
     text-decoration: none;
   } */
   
+
+  .btn {
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: 0.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: rgb(14, 14, 26);
+    color: rgb(234, 234, 234);
+    font-weight: 700;
+    transition: 0.6s;
+    box-shadow: 0px 0px 60px #1f4c65;
+  }
+  
+  .btn:active {
+    scale: 0.92;
+  }
+  
+  .btn:hover {
+    background: rgb(2,29,78);
+    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+    color: rgb(4, 4, 38);
+  }

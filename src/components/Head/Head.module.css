@@ -2,25 +2,30 @@
     font-size: 200%;
     background-color: bisque;
     color: rgb(10, 49, 70);
-    padding-top: 10px;
-
+    /* padding-top: 10px; */
+    font-size: 1.8rem;
+    padding: 1rem 2.5rem;
+    display: flex;
 }
 .loginBlock{
-    margin: auto;
+    /* margin: auto; */
     float:right;
+    position: inherit;
 }
 .loginBlock a{
 color: rgb(211, 54, 94);
 }
-.logout button{
+/* .logout button{
 margin-right: 10px;
 margin-bottom: 100px;
-}
+} */
 
 .logout {
 margin-right: 3px;
-display: flex;
+/* display: flex; */
 position: absolute;
-right: 5px;
-top: 24px;
+right: 1px;
+top: 33px;
+float:right;
+
 }

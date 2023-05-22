@@ -28,6 +28,17 @@ return(
           </div>
         </span>
       </div>)}
+
+      <div className={q.container}>
+    <div className={q.box}>
+        <span className={q.title}>GLASS EFFECT</span>
+        <div>
+            <strong>JOE WATSON SBF</strong>
+            <p>0000 000 000 0000</p>
+            <span>VALID</span> <span>01/28</span>
+        </div>
+    </div>
+</div>
     </div>
 )
 }

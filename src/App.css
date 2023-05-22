@@ -1,6 +1,3 @@
-
-
-
 .App-w{
 display: grid;
 
@@ -8,7 +5,7 @@ display: grid;
   "H H"
   "S P";
 
-grid-template-rows: 60px 1fr;
+grid-template-rows: 89px 1fr;
 grid-template-columns: 2fr 10fr;
 grid-gap: 10px;
 font-size: 14px;
@@ -19,7 +16,6 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .bar{
   grid-area: S;
- ;
 }
 
 .head{
