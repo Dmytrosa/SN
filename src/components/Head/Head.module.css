@@ -1,31 +1,150 @@
 .Name{
-    font-size: 200%;
-    background-color: bisque;
-    color: rgb(10, 49, 70);
+    --glow-color: rgba(0, 217, 255, 0.279);
+    --glow-spread-color: rgba(255, 123, 123, 0.107);
+    box-shadow: 0 0 1em .1em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 .4em .25em var(--glow-color);
+    border-radius: 10px ;
+    /* font-size: 200%; */
+    background-color:rgb(9, 0, 41);
+    /* color: rgb(10, 49, 70); */
     /* padding-top: 10px; */
     font-size: 1.8rem;
-    padding: 1rem 2.5rem;
+    /* padding: 0.1rem 2.5rem; */
     display: flex;
+    border: 1px;
+    border: solid;
+    ;
+    border-color: rgba(217, 176, 255, 0.279);
 }
+
+.logo{       
+    -webkit-filter: drop-shadow(12px 12px 7px rgb(0, 51, 255));
+    filter: drop-shadow(1px 1px 10px rgb(0, 30, 149));
+    height: 60px;
+}
+
 .loginBlock{
-    /* margin: auto; */
-    float:right;
-    position: inherit;
+    /* float:right; */
+    /* position: inherit; */
 }
-.loginBlock a{
-color: rgb(211, 54, 94);
-}
-/* .logout button{
-margin-right: 10px;
-margin-bottom: 100px;
-} */
 
 .logout {
 margin-right: 3px;
 /* display: flex; */
 position: absolute;
 right: 1px;
-top: 33px;
-float:right;
+top: 30px;
+/* float:right; */
 
 }
+.SNNAme{
+ --glow-color: rgba(240, 240, 240, 0.977);
+ --glow-spread-color: rgba(191, 123, 255, 0.781);
+ --enhanced-glow-color: rgba(231, 206, 255, 0.591);
+ --btn-color: rgb(198, 137, 255);
+ border: .25em solid var(--glow-color);
+ padding-left: 15px;
+ padding-right: 15px;
+ color: rgb(172, 120, 199); font-size: 15px;
+ font-weight: bold;
+ background-color: var(--btn-color);
+ border-radius: 1em;
+ outline: none;
+ box-shadow: 0 0 1em .1em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .4em .25em var(--glow-color);
+ text-shadow: 0 0 .5em var(--glow-color);
+ position: relative;
+ transition: all 0.3s;
+ 
+}
+
+.SNNAme::after {
+ pointer-events: none;
+ content: "";
+ position: absolute;
+ top: 120%;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--glow-spread-color);
+ filter: blur(2em);
+ opacity: .7;
+ transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+.SNNAme:hover {
+ color: rgba(255, 255, 255, 0.756);
+ background-color: var(--glow-color);
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+.SNNAme:active {
+ box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+
+.noselect {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #e62222;
+   }
+   
+ .noselect, button span {
+    transition: 200ms;
+   }
+   
+   .noselect .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+   }
+   
+   .noselect .icon {
+    position: absolute;
+    border-left: 1px solid #c41b1b;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   
+   .noselect svg {
+    width: 15px;
+    fill: #eee;
+   }
+   
+   .noselect:hover {
+    background: #ff3636;
+   }
+   
+   .noselect:hover .text {
+    color: transparent;
+   }
+   
+   .noselect:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+   }
+   
+   .noselect:focus {
+    outline: none;
+   }
+   
+   .noselect:active .icon svg {
+    transform: scale(0.8);
+   }

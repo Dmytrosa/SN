@@ -10,7 +10,7 @@ const CLEANISFETCHINGFOLLOWING =()=>"CLEAN_IS_FETCHING_FOLLOWING"
 
 let initialState = {
     usersinfo: [],
-    pageSize: 10,
+    pageSize: 12,
     totalUsersCount: null,
     currentPage:1,
     pagePortion: 10,

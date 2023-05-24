@@ -73,7 +73,7 @@
     font-weight: 200;
     margin-left: 5px;
   }
-  
+/*   
   .button{
       padding: 4px 4px;
       margin: 5px 12px;
@@ -85,13 +85,17 @@
       align-items: center;
       text-align: center;
       box-shadow: 7px 5px   teal;
-  }
+  } */
   .status{
 /* margin-left: 20px; */
 margin: 10px 10px;
-padding: 10px 10px;
+padding: 10px 100px;
+display: inline;
   }
-
+.onChangeStatus{
+  padding-left: 1%;
+}
+/* 
   .button:hover,
   .input[type="submit"]:hover {
     background: #ebebeb;
@@ -109,17 +113,17 @@ padding: 10px 10px;
     transform: translateY(3px);
     border: 1px solid transparent;
     opacity: 0.8;
-  }
+  } */
   
   .input:disabled {
     opacity: 0.4;
   }
   
-  .input[type="button"]:hover {
+  /* .input[type="button"]:hover {
     transition: 0.3s all;
-  }
+  } */
   
-  .button[type="submit"],
+  /* .button[type="submit"], */
   .input[type="button"],
   .input[type="submit"] {
     -webkit-appearance: none;
@@ -130,7 +134,7 @@ padding: 10px 10px;
     margin: 0 auto;
   }
   
-  .button[type="button"] {
+  /* .button[type="button"] {
     display: block;
     appearance: none;
     background: #333;
@@ -139,7 +143,7 @@ padding: 10px 10px;
     text-transform: uppercase;
     padding: 10px 20px;
     border-radius: 4px;
-  }
+  } */
   
   .hr {
     margin-top: 30px;

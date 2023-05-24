@@ -1,5 +1,6 @@
 import React from "react";
 import q from "./Profile.module.css";
+import bb from "../../Assets/Blackbutton.module.css"
 import Posts from "../Posts/Posts";
 import Status from "./Status";
 import Loader from "../../Assets/Loader";
@@ -38,7 +39,7 @@ const [isContactsActive, setIsContactsActive] = useState(false)
           <div >
              {props.state.auth.userId === props.profile.userId
           ?
-         <button className={q.button} onClick={()=>{setIsPersonalInfoActive(true)}} >Edit</button>
+         <button className={bb.Bbutton} onClick={()=>{setIsPersonalInfoActive(true)}} >Edit</button>
           : <></>}
             <ul> Personal info:
               <li>Looking for a job: {props.profile.lookingForAJob? <>yaya</>: <>nono</> }</li>
@@ -56,7 +57,7 @@ const [isContactsActive, setIsContactsActive] = useState(false)
           <div >
              {props.state.auth.userId === props.profile.userId
           ?
-         <button className={q.button} onClick={()=>{setIsContactsActive(true)}} >Edit</button>
+         <button className={bb.Bbutton} onClick={()=>{setIsContactsActive(true)}} >Edit</button>
           : <></>}
             <ul>Contacts:
               <li>GitHub: <a target="_blank" href={props.profile.contacts.github}>{props.profile.contacts.github}</a></li>

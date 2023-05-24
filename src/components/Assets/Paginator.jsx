@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import q from "../Profile/Users/Users.module.css"
+import bb from "./Blackbutton.module.css"
 const Paginator = (props) => {
     const [portionNumber, setPortionNumber] = useState(1)
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -15,7 +16,7 @@ const Paginator = (props) => {
     useEffect(() => { setPortionNumber(currentPortion) }, [])
     return (
         <div className={q.paginatorBox}>
-            {portionNumber > 1 && <button onClick={() => { setPortionNumber(portionNumber - 1) }}>{`<=`}</button>}
+            {portionNumber > 1 && <button className={bb.Bbutton} onClick={() => { setPortionNumber(portionNumber - 1) }}>{`<=`}</button>}
             {pages
                 .filter(p => p < rightPortionPageNumber && p > leftPortionPageNumber)
                 .map(p => {
@@ -24,7 +25,7 @@ const Paginator = (props) => {
                             props.onPageChanged(p);
                         }} > _{p}_</span>
                 })}
-            {portionCount > portionNumber && <button onClick={() => { setPortionNumber(portionNumber + 1) }}>{`=>`}</button>
+            {portionCount > portionNumber && <button className={bb.Bbutton} onClick={() => { setPortionNumber(portionNumber + 1) }}>{`=>`}</button>
             }
         </div>
     )
