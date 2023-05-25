@@ -13,7 +13,7 @@ let initialState = {
     pageSize: 12,
     totalUsersCount: null,
     currentPage:1,
-    pagePortion: 10,
+    pagePortion: 12,
     isFetching : false,
     isFetchingFollowing: [],
 };

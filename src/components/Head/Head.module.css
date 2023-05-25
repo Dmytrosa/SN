@@ -31,10 +31,13 @@
 
 .logout {
 margin-right: 3px;
-/* display: flex; */
+display: flex;
 position: absolute;
 right: 1px;
 top: 30px;
+justify-content: center;
+align-items: center;
+padding: 0 10px;
 /* float:right; */
 
 }
@@ -89,6 +92,7 @@ top: 30px;
 }
 
 .noselect {
+    margin-right: 10px;
     width: 150px;
     height: 50px;
     cursor: pointer;

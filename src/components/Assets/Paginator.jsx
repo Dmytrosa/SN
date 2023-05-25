@@ -14,16 +14,17 @@ const Paginator = (props) => {
     let leftPortionPageNumber = ((portionNumber - 1) * props.pagePortion);
 
     useEffect(() => { setPortionNumber(currentPortion) }, [])
+    debugger
     return (
         <div className={q.paginatorBox}>
             {portionNumber > 1 && <button className={bb.Bbutton} onClick={() => { setPortionNumber(portionNumber - 1) }}>{`<=`}</button>}
             {pages
                 .filter(p => p < rightPortionPageNumber && p > leftPortionPageNumber)
                 .map(p => {
-                    return <span key={p} className={props.currentPage === p? q.selectedPage : null}
+                    return <span key={p} className={props.currentPage === p? bb.Abutton : bb.Bbutton}
                         onClick={() => {
                             props.onPageChanged(p);
-                        }} > _{p}_</span>
+                        }} >{p}</span>
                 })}
             {portionCount > portionNumber && <button className={bb.Bbutton} onClick={() => { setPortionNumber(portionNumber + 1) }}>{`=>`}</button>
             }
