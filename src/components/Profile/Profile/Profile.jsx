@@ -58,8 +58,8 @@ const [isContactsActive, setIsContactsActive] = useState(false)
              {props.state.auth.userId === props.profile.userId
           ?
          <button 
-        //  className={bb.Bbutton}
-        className={q.cybbutton}
+         className={bb.Bbutton}
+        // className={q.cybbutton}
           onClick={()=>{setIsContactsActive(true)}} >Edit</button>
           : <></>}
             <ul>Contacts:
