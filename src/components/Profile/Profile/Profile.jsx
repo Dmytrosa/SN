@@ -57,7 +57,10 @@ const [isContactsActive, setIsContactsActive] = useState(false)
           <div >
              {props.state.auth.userId === props.profile.userId
           ?
-         <button className={bb.Bbutton} onClick={()=>{setIsContactsActive(true)}} >Edit</button>
+         <button 
+        //  className={bb.Bbutton}
+        className={q.cybbutton}
+          onClick={()=>{setIsContactsActive(true)}} >Edit</button>
           : <></>}
             <ul>Contacts:
               <li>GitHub: <a target="_blank" href={props.profile.contacts.github}>{props.profile.contacts.github}</a></li>
@@ -73,12 +76,13 @@ const [isContactsActive, setIsContactsActive] = useState(false)
           ?
           <AvaLoader SetAvaThunk={props.SetAvaThunk} />
           : <></>}
-        <div>
+       
+      </div>
+      <div>
           <Status {...props}
           // isAuthor={isAuthor}
           />
         </div>
-      </div>
       {props.state.auth.userId === props.profile.userId
         ?
         <><div className={q.WordPosts}>POSTS</div>

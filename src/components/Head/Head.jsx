@@ -9,10 +9,24 @@ const Head = (props) => {
   return (
     <header className='head'>
       <h1 className={q.Name}>
-        <div className={q.SNNAme}>
+        {/* <div className={q.SNNAme}>
           <img className={q.logo} src={logo} alt="logo" />
           ©MavpaWorld
-        </div>
+        </div> */}
+        
+        <button className={q.btn} >
+  <strong className={q.strong}>MAVPA WORLD</strong>
+  <img className={q.logo} src={logo} alt="logo" />
+  <div className={q.containerstars}>
+    <div className={q.stars}></div>
+  </div>
+  <div className={q.glow}>
+    <div className={q.circle}></div>
+    <div className={q.circle}></div>
+  </div>
+        </button>
+
+
         <div className={q.loginBlock}>
           {props.isAuth ? <div className={q.logout}>
 

@@ -31,6 +31,8 @@ const SideBar = () => {
           >
             <div className={q.center}>Settings</div>
           </NavLink>
+          {/* <textarea typeof="input" rows="3" cols="5" placeholder="Aboba" > </textarea> */}
+
       </div>
     </nav>
   );

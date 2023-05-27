@@ -24,6 +24,11 @@ class App extends PureComponent {
     this.props.InitApp()
 
 
+  //   setTimeout(function() {
+  //     document.getElementById("myButton").style.display = "block";
+  //     document.getElementById("loader").style.display = "none";
+  // }, 5000); // Приховує loader через 5 секунд
+
   }
   render() {
 
@@ -32,6 +37,18 @@ class App extends PureComponent {
     // }
     return (
       <div className="App-w">
+{/* 
+<button id="myButton" onClick={()=> {
+      style.display = "none";
+      document.getElementById("load").style.display = "block";
+  }}>Натисніть мене</button>
+<div id="load"  class="boxLoader">
+    <div class="loader"></div>
+</div> */}
+
+
+
+
         <HeadContainer />
         <div className="App-w-content">
           
